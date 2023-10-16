@@ -2,9 +2,324 @@
 \usepackage{homework}
 \newcommand{\hwnum}{}
 
+\hfuzz=1000pt
+
 \begin{document}
 \maketitle
 
 \question
+
+\begin{enumerate}[label=(\alph*)]
+	\item Given $k$ vectors $\mathbf{v}_1, \mathbf{v}_2, \ldots,
+		      \mathbf{v}_{k} \in \mathbb{R}^n$, show that the
+	      $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a
+	      subspace of $\mathbb{R}^n$.
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par A subspace is a subset of a vector space that contains the zero
+	      vector, closed under addition, and closed under scalar multiplication.
+	      Thus we must show the following: (i) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subset of
+	      $\mathbb{R}^n$ and that (ii) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace.
+
+	      \par (i) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subset of
+	      $\mathbb{R}^n$: Because $\mathbf{v}_1, \mathbf{v}_2, \ldots,
+		      \mathbf{v}_{k} \in \mathbb{R}^n$, we know that all possible linear
+	      combinations of these vectors will also be in $\mathbb{R}^n$.
+	      Therefore, $\operatorname{span}\left\{\mathbf{v}_{1},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subset of
+	      $\mathbb{R}^n$.
+
+	      \par (ii) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace:
+	      The span is defined as $\sum_{i=1}^{k} \alpha_i \mathbf{v}_i$,
+	      where $\alpha_i \in \mathbb{R}$. In other words, the span is the set
+	      of all linear combinations of the vectors $\mathbf{v}_1, \mathbf{v}_2,
+		      \ldots, \mathbf{v}_{k}$. This satisfies the three properties of a
+	      subspace: setting all $\alpha_i = 0$ demonstrates that the span
+	      contains the zero vector and by the definition of linear combination,
+	      any span must be closed under addition and scalar multiplication.
+
+	      \par Together, this shows that $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace of
+	      $\mathbb{R}^n$. \qed
+
+	\item Given a matrix $A \in \mathbb{R}^{m \times n}$, show that the
+	      $\mathcal{N}(\mathbf{A})$ is a subspace. Which vector space is it a
+	      subspace of?
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par The null space $\mathcal{N}(\mathbf{A})$ consists of all solutions $\mathbf{x}$
+	      to the equation $\mathbf{A}\mathbf{x} = \mathbf{0}$, where $A \in
+		      \mathbb{R}^{m \times n}$. In this equation, $\mathbf{x}$ must be a column vector with $n$
+	      elements to satisfy matrix-vector multiplication. Therefore, the solutions to this equation are $n$-dimensional vectors,
+	      and are a subspace of $\mathbb{R}^n$. \qed
+
+\end{enumerate}
+
+\question
+
+\begin{enumerate}[label=(\alph*)]
+	\item Suppose that we are given $k$ vectors $\mathbf{u}_1, \mathbf{u}_2,
+		      \ldots, \mathbf{u}_{\mathbf{k}} \in \mathbb{R}^n$. Now consider another
+	      $m$ vectors $\mathbf{v}_1, \mathbf{v}_2, \ldots,
+		      \mathbf{v}_{\mathbf{m}}$ such that
+	      $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_{\mathbf{m}}
+		      \in \operatorname{span}\left\{\mathbf{u}_{1}, \mathbf{u}_{2}, \ldots,
+		      \mathbf{u}_{k}\right\}$. Show that $\operatorname{span}\left\{\mathbf{v}_{1},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{m}\right\}$ is a subspace of
+	      $\operatorname{span}\left\{\mathbf{u}_{1}, \mathbf{u}_{2}, \ldots,
+		      \mathbf{u}_{k}\right\}$.
+
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par A subspace is a subset of a vector space that contains the zero
+	      vector, closed under addition, and closed under scalar multiplication.
+	      Thus we must show the following: (i) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{m}\right\}$ is a subset of
+	      $\operatorname{span}\left\{\mathbf{u}_{1}, \mathbf{u}_{2}, \ldots,
+		      \mathbf{u}_{k}\right\}$ and that (ii) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace.
+
+	      \par (i) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{m}\right\}$ is a subset of
+	      $\operatorname{span}\left\{\mathbf{u}_{1}, \mathbf{u}_{2}, \ldots,
+		      \mathbf{u}_{k}\right\}$: Given that $\mathbf{v}_1, \mathbf{v}_2,
+		      \ldots, \mathbf{v}_m$ are in the span of $\mathbf{u}_1, \mathbf{u}_2,
+		      \ldots, \mathbf{u}_k$, this means that each $\mathbf{v}_i$ can be
+	      expressed as a linear combination of the vectors $\mathbf{u}_1,
+		      \mathbf{u}_2, \ldots, \mathbf{u}_k$. For each
+	      $\mathbf{v}_i$, there exist coefficients $a_{i1}, a_{i2}, \ldots,
+		      a_{ik}$ such that:
+	      $$ \mathbf{v}_i = a_{i1}\mathbf{u}_1 + a_{i2}\mathbf{u}_2 + \ldots + a_{ik}\mathbf{u}_k $$
+	      Now, consider an arbitrary vector $\mathbf{w}$ in the span of
+	      $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_m$. We can express
+	      $\mathbf{w}$ as a linear combination of the vectors $\mathbf{v}_1,
+		      \mathbf{v}_2, \ldots, \mathbf{v}_m$. For each
+	      $\mathbf{w}$, there exist coefficients $\beta_{i1}, \beta_{i2}, \ldots,
+		      \beta_{ik}$ such that:
+	      $$ \mathbf{w} = \beta_{i1}\mathbf{v}_1 + \beta_{i2}\mathbf{v}_2 + \ldots + \beta_{im}\mathbf{v}_m $$
+	      Substituting the expression for $\mathbf{v}_i$ into the expression for $\mathbf{w}$, we get:
+	      $$ \mathbf{w} = \beta_{i1}(a_{i1}\mathbf{u}_1 + a_{i2}\mathbf{u}_2 + \ldots + a_{ik}\mathbf{u}_k) + \beta_{i2}(a_{i1}\mathbf{u}_1 + a_{i2}\mathbf{u}_2 + \ldots + a_{ik}\mathbf{u}_k) + \ldots + \beta_{im}(a_{i1}\mathbf{u}_1 + a_{i2}\mathbf{u}_2 + \ldots + a_{ik}\mathbf{u}_k) $$
+	      Distributing the coefficients, we get:
+	      $$ \mathbf{w} = \sum_{i=1}^{m} \sum_{j=1}^{k} \beta_{ij}a_{ij}\mathbf{u}_j $$
+
+	      This shows that the vector $\mathbf{w}$ is a linear combination of the
+	      vectors $\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_k$, which
+	      means that $\mathbf{w}$ is in the span of these vectors.
+
+	      \par (ii) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace:
+	      The span is defined as $\sum_{i=1}^{k} \alpha_i \mathbf{v}_i$,
+	      where $\alpha_i \in \mathbb{R}$. In other words, the span is the set
+	      of all linear combinations of the vectors $\mathbf{v}_1, \mathbf{v}_2,
+		      \ldots, \mathbf{v}_{k}$. This satisfies the three properties of a
+	      subspace: setting all $\alpha_i = 0$ demonstrates that the span
+	      contains the zero vector and by the definition of linear combination,
+	      any span must be closed under addition and scalar multiplication.
+
+	      \par Together, this shows that $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace of
+	      $\operatorname{span}\left\{\mathbf{u}_{1}, \mathbf{u}_{2}, \ldots,
+		      \mathbf{u}_{k}\right\}$. \qed
+
+	\item Given $\mathbf{A} \in \mathbb{R}^{n \times k}, \mathbf{B} \in
+		      \mathbb{R}^{k \times m}$, show that $\mathcal{R}(\mathbf{C})$ is a
+	      subspace of $\mathcal{R}(\mathbf{A})$ given that $\mathbf{C} = \mathbf{AB}$.
+
+	      % SOLUTION BEGINS HERE
+	      \par \textbf{Solution:}
+	      \par To show that $\mathcal{R}(\mathbf{C})$ is a subspace of
+	      $\mathcal{R}(\mathbf{A})$, we must show the following: (i)
+	      $\mathcal{R}(\mathbf{C})$ is in $\mathcal{R}(\mathbf{A})$ and that
+	      (ii) $\mathcal{R}(\mathbf{C})$ is a subspace.
+
+	      \par (i) Writing out the matrix multiplication, we get:
+	      $$
+		      \left[\begin{array}{cccc}
+				      a_{11}  & a_{12} & \cdots & a_{1 k} \\
+				      a_{21}  & a_{22} &        & a_{2 k} \\
+				      \vdots  &        & \ddots & \vdots  \\
+				      a_{n 1} & a_{n2} & \cdots & a_{n k}
+			      \end{array}\right]
+		      \left[\begin{array}{cccc}
+				      b_{11}  & b_{12}  & \cdots & b_{1 m} \\
+				      b_{21}  & b_{22}  &        & b_{2 m} \\
+				      \vdots  &         & \ddots & \vdots  \\
+				      b_{k 1} & b_{k 2} & \cdots & b_{k m}
+			      \end{array}\right]=
+		      \left[\begin{array}{cccc}
+				      c_{11}  & c_{12}  & \cdots & c_{1 m} \\
+				      c_{21}  & c_{22}  &        & c_{2 m} \\
+				      \vdots  &         & \ddots & \vdots  \\
+				      c_{n 1} & c_{n 2} & \cdots & c_{n m}
+			      \end{array}\right]
+	      $$
+	      It is clear that the matrix $\mathbf{A}$ consists of $k$ column
+	      vectors of length $n$, and the matrix $\mathbf{C}$ consists of $m$
+	      column vectors of length $n$. By
+	      definition, $\mathcal{R}(\mathbf{A})$ is the span of its column
+	      vectors. Since each column vector of $\mathbf{C}$ is a linear
+	      combination of the column vectors of $\mathbf{A}$ (with coefficients
+	      defined by $\mathbf{B}$), it follows that
+	      the column vectors of $\mathbf{C}$ are in the span of the column
+	      vectors of $\mathbf{A}$.
+
+	      \par (ii) To show that $\mathcal{R}(\mathbf{C})$ is a subspace, we must
+	      show that it satisfies the three properties of a subspace. To show
+	      that $\mathcal{R}(\mathbf{C})$ contains the zero vector, we can
+	      multiply all columns of $\mathbf{C}$ by the zero vector, which will
+	      return the zero vector. To show that $\mathcal{R}(\mathbf{C})$ is
+	      closed under addition, we can add two columns of $\mathbf{C}$ to get
+	      a vector that is a linear combination of the columns of $\mathbf{C}$,
+	      and is thus in the range of $\mathbf{C}$.
+	      Finally, to show that $\mathcal{R}(\mathbf{C})$ is closed under scalar
+	      multiplication, we can multiply a column of $\mathbf{C}$ by a scalar
+	      to get a vector that is a linear combination of its columns and is
+	      thus also in the range of $\mathbf{C}$.
+
+	      \par Together, we have shown that $\mathcal{R}(\mathbf{C})$ is a subspace
+	      of $\mathcal{R}(\mathbf{A})$. \qed
+
+	\item Fill in the blank and justify your answer: Given the information in
+	      part (b), $\mathcal{R}\left( \mathbf{C}^T \right)$ is a subspace of
+	      $\mathcal{R}\left(\mathbf{B}^T \right)$.
+
+	      % SOLUTION BEGINS HERE
+	      \par \textbf{Solution:}
+	      To determine the subspace that $\mathcal{R}\left( \mathbf{C}^T
+		      \right)$ belongs to, let's examine its dimensions. From the definition
+	      of transpose, we have:
+	      $$
+		      \mathbf{C}^T  =
+		      \left[\begin{array}{cccc}
+				      c_{11}  & c_{12}  & \cdots & c_{1 n} \\
+				      c_{21}  & c_{22}  &        & c_{2 n} \\
+				      \vdots  &         & \ddots & \vdots  \\
+				      c_{m 1} & c_{m 2} & \cdots & c_{m n}
+			      \end{array}\right]
+	      $$
+	      Where a given element $c_{ij} \in \mathbf{C}$ is now element $c_{ji}$.
+	      Thus, we have that $\mathbf{C}^T \in \mathbb{R}^{m \times n}$. Now in
+	      order to achieve a matrix in $\mathbb{R}^{n \times m}$ from our
+	      original matrices $\mathbf{A}$ and $\mathbf{B}$, we must perform the
+	      following operation:
+	      $$
+		      \left[\begin{array}{cccc}
+				      b_{11}  & b_{12}  & \cdots & b_{1 k} \\
+				      b_{21}  & b_{22}  &        & b_{2 k} \\
+				      \vdots  &         & \ddots & \vdots  \\
+				      b_{m 1} & b_{m 2} & \cdots & b_{m k}
+			      \end{array}\right]
+		      \left[\begin{array}{cccc}
+				      a_{11}  & a_{12} & \cdots & a_{1 n} \\
+				      a_{21}  & a_{22} &        & a_{2 n} \\
+				      \vdots  &        & \ddots & \vdots  \\
+				      a_{k 1} & a_{k2} & \cdots & a_{k n}
+			      \end{array}\right]
+		      =
+		      \left[\begin{array}{cccc}
+				      c_{11}  & c_{12}  & \cdots & c_{1 n} \\
+				      c_{21}  & c_{22}  &        & c_{2 n} \\
+				      \vdots  &         & \ddots & \vdots  \\
+				      c_{m 1} & c_{m 2} & \cdots & c_{m n}
+			      \end{array}\right]
+	      $$
+	      However, notice that matrices
+	      $\mathbf{A}$ and $\mathbf{B}$ and have transposed and the order of
+	      operations have changed such that:
+	      $$ \mathbf{B}^T \mathbf{A}^T = \mathbf{C}^T $$
+	      Therefore, following the same reasoning as in (b), we can conclude
+	      that $\mathcal{R}\left( \mathbf{C}^T \right)$ is a subspace of
+	      $\mathcal{R}\left(\mathbf{B}^T \right)$. \qed
+
+\end{enumerate}
+\question
+
+\begin{enumerate}[label=(\alph*)]
+	\item Let $\mathbf{A}$ be a square matrix. Do $\mathbf{A}^2$ and
+	      $\mathbf{A}$ always have the same nullspace?
+	\item Given $\mathbf{A} \in \mathbb{R}^{n \times n}$, if
+	      $\mathcal{N}(\mathbf{A})$ contains only the zero vector, what vectors
+	      are in the nullspace of $\mathbf{B}=\left[\begin{array}{lll}
+				      \mathbf{A} & \mathbf{A} & \mathbf{A}
+			      \end{array}\right]$ ?
+	\item How is the nullspace of $\mathbf{C}$ related to the nullspace of
+	      $\mathbf{A}$ and $\mathbf{B}$, if $\mathbf{C}=\left[\begin{array}{l}
+				      \mathbf{A} \\
+				      \mathbf{B}
+			      \end{array}\right]$?
+\end{enumerate}
+\question
+Consider the stacked vectors
+$$
+	c_1=\left[\begin{array}{l}
+			a_1 \\
+			b_1
+		\end{array}\right], c_2=\left[\begin{array}{l}
+			a_2 \\
+			b_2
+		\end{array}\right], \ldots, c_k=\left[\begin{array}{l}
+			a_k \\
+			b_k
+		\end{array}\right]
+$$
+where $\mathbf{a}_1, \mathbf{a}_2, \ldots, \mathbf{a}_{\mathbf{k}} \in
+	\mathbb{R}^n$,
+$\mathbf{b}_1, \mathbf{b}_2, \ldots,
+	\mathbf{b}_{\mathbf{k}} \in \mathbb{R}^m$, and $m \leq n$.
+
+\begin{enumerate}[label=(\alph*)]
+	\item Suppose $a_1, a_2, \ldots, a_k$ are linearly independent. No
+	      assumptions about $b_1, b_2, \ldots, b_k$ are made. Can we conclude that
+	      the stacked vectors
+	      $c_1, c_2, \ldots, c_k$ are linearly independent?
+	\item Suppose $a_1, a_2, \ldots, a_k$ are linearly dependent. Again, no
+	      assumptions about $b_1, b_2, \ldots, b_k$ are made. Can we conclude that
+	      the stacked vectors
+	      $c_1, c_2, \ldots, c_k$ are linearly independent?
+	\item What happens in parts (a) and (b) when $m > n$?
+\end{enumerate}
+\question
+Which of the following sets forms a subspace? If yes, prove that it is a
+subspace. If no, give a counterexample.
+\begin{enumerate}[label=(\alph*)]
+	\item
+	      $s_{1} =
+		      \left\{
+		      x=\left[x_{1}x_{2}x_{3}\right]^T \in \mathbb{R}^3 | x_1 - x_2 +
+		      \pi x_3 = 0
+		      \right\}$
+	\item
+	      $s_{2} =
+		      \left\{
+		      x=\left[x_{1}x_{2}x_{3}\right]^T \in \mathbb{R}^3 | x_1 + 3x_2 -
+		      x_3 = 1.22
+		      \right\}$
+	\item
+	      $s_{3} =
+		      \left\{
+		      x=\left[x_{1}x_{2}x_{3}x_{4}\right]^T \in \mathbb{R}^4 | x_1x_4 =
+		      x_2x_3 \right\}$
+	\item
+	      $s_{4} =
+		      \left\{
+		      x=\left[x_{1}x_{2}x_{3}x_{4}\right]^T \in \mathbb{R}^4 | x_1 =
+		      -2x_2, x_2 + x_3 + x_4 = 0 \right\}$
+	\item
+	\item
+\end{enumerate}
+\question
+
+Textbook Problem 6.7
+\begin{enumerate}[label=(\alph*)]
+	\item
+\end{enumerate}
 
 \end{document}
