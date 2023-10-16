@@ -1,0 +1,110 @@
+\begin{enumerate}[label=(\alph*)]
+	\item Let $\mathbf{A}$ be a square matrix. Do $\mathbf{A}^2$ and
+	      $\mathbf{A}$ always have the same nullspace?
+
+	      % SOLUTION BEGINS HERE
+	      \par \textbf{Solution:}
+	      No, not necessarily. Consider the following example:
+	      $$ \mathbf{A} = \left[\begin{array}{cc}
+				      0 & 1 \\
+				      0 & 0
+			      \end{array}\right] $$
+	      Therefore, we have
+	      $$ \mathbf{A}^2 =
+		      \left[\begin{array}{cc}
+				      0 & 1 \\
+				      0 & 0
+			      \end{array}\right]
+		      \left[\begin{array}{cc}
+				      0 & 1 \\
+				      0 & 0
+			      \end{array}\right]
+		      =
+		      \left[\begin{array}{cc}
+				      0 & 0 \\
+				      0 & 0
+			      \end{array}\right]
+	      $$
+	      Recall the definition of the nullspace of a matrix $\mathbf{A}$ to be
+	      the set of vectors $\mathbf{x}$ such that $\mathbf{Ax} = \mathbf{0}$.
+	      Consider the nullspace of the above matrices:
+	      $$
+		      \left[\begin{array}{cc}
+				      0 & 1 \\
+				      0 & 0
+			      \end{array}\right]
+		      \left[\begin{array}{c}
+				      x_1 \\
+				      x_2
+			      \end{array}\right]
+		      =
+		      \left[\begin{array}{c}
+				      0 \\
+				      0
+			      \end{array}\right]
+	      $$
+	      $$
+		      \left[\begin{array}{cc}
+				      0 & 0 \\
+				      0 & 0
+			      \end{array}\right]
+		      \left[\begin{array}{c}
+				      x_1 \\
+				      x_2
+			      \end{array}\right]
+		      =
+		      \left[\begin{array}{c}
+				      0 \\
+				      0
+			      \end{array}\right]
+	      $$
+	      Clearly, the nullspace of $\mathbf{A}$ is the set of vectors where
+	      $x_2 = 0$ while the nullspace of $\mathbf{A}^2$ is the set of vectors
+	      where $x_1, x_2 \in \mathbb{R}$. Thus we have demonstrated that the
+	      set of vectors in the nullspace of $\mathbf{A}^2$ is not necessarily
+	      the same as the nullspace of $\mathbf{A}$. \qed
+
+	\item Given $\mathbf{A} \in \mathbb{R}^{n \times n}$, if
+	      $\mathcal{N}(\mathbf{A})$ contains only the zero vector, what vectors
+	      are in the nullspace of $\mathbf{B}=\left[\begin{array}{lll}
+				      \mathbf{A} & \mathbf{A} & \mathbf{A}
+			      \end{array}\right]$ ?
+
+	      % SOLUTION BEGINS HERE
+	      \par \textbf{Solution:} $\mathcal{N}(\mathbf{B})$ will contain only
+	      the zero vector. Because $\mathcal{N}(\mathbf{A})$ contains
+	      only the zero vector, there exists a unique non-zero vector
+	      $\mathbf{x} \in \mathbb{R}^{n \times 1}$ that satisfies
+	      $\mathbf{A}\mathbf{x} = \mathbf{0}$. By simply stacking three copies
+	      of $\mathbf{x}$, we can see that $\mathbf{B}\mathbf{x} = \mathbf{0}$,
+	      which is also the zero vector.
+	      \qed
+
+	\item How is the nullspace of $\mathbf{C}$ related to the nullspace of
+	      $\mathbf{A}$ and $\mathbf{B}$, if $\mathbf{C}=\left[\begin{array}{l}
+				      \mathbf{A} \\
+				      \mathbf{B}
+			      \end{array}\right]$?
+
+	      % SOLUTION BEGINS HERE
+	      \par \textbf{Solution:} Recall the definition of the nullspace of a
+	      matrix $\mathbf{C}$ to be the set of vectors $\mathbf{x}$ such that
+	      $\mathbf{Cx} = \mathbf{0}$. Considering the definition of $\mathbf{C}$
+	      above, we have
+	      $$
+		      \mathbf{Cx} =
+		      \left[\begin{array}{l}
+				      \mathbf{A} \\
+				      \mathbf{B}
+			      \end{array}\right]
+		      \mathbf{x} =
+		      \left[\begin{array}{l}
+				      \mathbf{Ax} \\
+				      \mathbf{Bx}
+			      \end{array}\right] = 0
+	      $$
+	      Therefore, for $\mathbf{Cx} = 0$ to hold, $\mathbf{x}$ must belong to
+	      the nullspace of both $\mathbf{A}$ and $\mathbf{B}$.
+	      \qed
+
+\end{enumerate}

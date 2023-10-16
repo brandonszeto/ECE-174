@@ -1,0 +1,52 @@
+\begin{enumerate}[label=(\alph*)]
+	\item Given $k$ vectors $\mathbf{v}_1, \mathbf{v}_2, \ldots,
+		      \mathbf{v}_{k} \in \mathbb{R}^n$, show that the
+	      $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a
+	      subspace of $\mathbb{R}^n$.
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par A subspace is a subset of a vector space that contains the zero
+	      vector, closed under addition, and closed under scalar multiplication.
+	      Thus we must show the following: (i) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subset of
+	      $\mathbb{R}^n$ and that (ii) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace.
+
+	      \par (i) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subset of
+	      $\mathbb{R}^n$: Because $\mathbf{v}_1, \mathbf{v}_2, \ldots,
+		      \mathbf{v}_{k} \in \mathbb{R}^n$, we know that all possible linear
+	      combinations of these vectors will also be in $\mathbb{R}^n$.
+	      Therefore, $\operatorname{span}\left\{\mathbf{v}_{1},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subset of
+	      $\mathbb{R}^n$.
+
+	      \par (ii) $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace:
+	      The span is defined as $\sum_{i=1}^{k} \alpha_i \mathbf{v}_i$,
+	      where $\alpha_i \in \mathbb{R}$. In other words, the span is the set
+	      of all linear combinations of the vectors $\mathbf{v}_1, \mathbf{v}_2,
+		      \ldots, \mathbf{v}_{k}$. This satisfies the three properties of a
+	      subspace: setting all $\alpha_i = 0$ demonstrates that the span
+	      contains the zero vector and by the definition of linear combination,
+	      any span must be closed under addition and scalar multiplication.
+
+	      \par Together, this shows that $\operatorname{span}\left\{\mathbf{v}_{2},
+		      \mathbf{v}_{2}, \ldots, \mathbf{v}_{k}\right\}$ is a subspace of
+	      $\mathbb{R}^n$. \qed
+
+	\item Given a matrix $A \in \mathbb{R}^{m \times n}$, show that the
+	      $\mathcal{N}(\mathbf{A})$ is a subspace. Which vector space is it a
+	      subspace of?
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par The null space $\mathcal{N}(\mathbf{A})$ consists of all solutions $\mathbf{x}$
+	      to the equation $\mathbf{A}\mathbf{x} = \mathbf{0}$, where $A \in
+		      \mathbb{R}^{m \times n}$. In this equation, $\mathbf{x}$ must be a column vector with $n$
+	      elements to satisfy matrix-vector multiplication. Therefore, the solutions to this equation are $n$-dimensional vectors,
+	      and are a subspace of $\mathbb{R}^n$. \qed
+
+\end{enumerate}
