@@ -1,4 +1,22 @@
-Textbook Problem 6.7
-\begin{enumerate}[label=(\alph*)]
-	\item
-\end{enumerate}
+\textit{Currency exchange matrix.} We consider a set of $n$ currencies, labeled
+$1, \cdots, n$. (These might correspond to USD, RMB, EUR, and so on.) At a
+particular time the exchange or conversion rates among the $n$ currencies are
+given by an $n \times n$ (exchange rate) matrix $R$, where $R_{ij}$ is the
+amount of currency $i$ that you can buy for one unit of currency $j$. (All
+entries of $R$ are positive.) The exchange rates include commission charges, so
+we have $R_{ji}R_{ij} < 1$ for all $i \neq j$. You can assume that $R_{ii} = 1$.
+
+\par Suppose $y = Rx$, where $x$ is a vector (with nonnegative entries) that
+represents the amounts of the currencies that we hold. What is $y_i$? Your
+answer should be in English.
+
+% SOLUTION
+\par \textbf{Solution:}
+\par $y_i$ is the total amount of currency $i$ that we can exchange for by converting
+all the currencies that we hold. Multiplying $Rx$, we have:
+$$ y_i = \sum_{j=1}^n R_{ij}x_j $$
+Here, $x_j$ represents our holdings of currency $j$, and $R_{ij}$ represents
+represents the exchange rate from currency $j$ to currency $i$. Thus,
+multiplying these two values together gives us the amount of currency $i$ that
+we can exchange for. Summing over all $n$ currencies gives us the total amount
+of currency $i$ that we can exchange for.

@@ -74,49 +74,52 @@
 	      $\mathcal{R}(\mathbf{C})$ is in $\mathcal{R}(\mathbf{A})$ and that
 	      (ii) $\mathcal{R}(\mathbf{C})$ is a subspace.
 
-	      \par (i) Writing out the matrix multiplication, we get:
-	      $$
-		      \left[\begin{array}{cccc}
-				      a_{11}  & a_{12} & \cdots & a_{1 k} \\
-				      a_{21}  & a_{22} &        & a_{2 k} \\
-				      \vdots  &        & \ddots & \vdots  \\
-				      a_{n 1} & a_{n2} & \cdots & a_{n k}
-			      \end{array}\right]
-		      \left[\begin{array}{cccc}
-				      b_{11}  & b_{12}  & \cdots & b_{1 m} \\
-				      b_{21}  & b_{22}  &        & b_{2 m} \\
-				      \vdots  &         & \ddots & \vdots  \\
-				      b_{k 1} & b_{k 2} & \cdots & b_{k m}
-			      \end{array}\right]=
-		      \left[\begin{array}{cccc}
-				      c_{11}  & c_{12}  & \cdots & c_{1 m} \\
-				      c_{21}  & c_{22}  &        & c_{2 m} \\
-				      \vdots  &         & \ddots & \vdots  \\
-				      c_{n 1} & c_{n 2} & \cdots & c_{n m}
-			      \end{array}\right]
-	      $$
-	      It is clear that the matrix $\mathbf{A}$ consists of $k$ column
-	      vectors of length $n$, and the matrix $\mathbf{C}$ consists of $m$
-	      column vectors of length $n$. By
-	      definition, $\mathcal{R}(\mathbf{A})$ is the span of its column
-	      vectors. Since each column vector of $\mathbf{C}$ is a linear
-	      combination of the column vectors of $\mathbf{A}$ (with coefficients
-	      defined by $\mathbf{B}$), it follows that
-	      the column vectors of $\mathbf{C}$ are in the span of the column
-	      vectors of $\mathbf{A}$.
+	      \begin{enumerate}[label=\roman*.]
 
-	      \par (ii) To show that $\mathcal{R}(\mathbf{C})$ is a subspace, we must
-	      show that it satisfies the three properties of a subspace. To show
-	      that $\mathcal{R}(\mathbf{C})$ contains the zero vector, we can
-	      multiply all columns of $\mathbf{C}$ by the zero vector, which will
-	      return the zero vector. To show that $\mathcal{R}(\mathbf{C})$ is
-	      closed under addition, we can add two columns of $\mathbf{C}$ to get
-	      a vector that is a linear combination of the columns of $\mathbf{C}$,
-	      and is thus in the range of $\mathbf{C}$.
-	      Finally, to show that $\mathcal{R}(\mathbf{C})$ is closed under scalar
-	      multiplication, we can multiply a column of $\mathbf{C}$ by a scalar
-	      to get a vector that is a linear combination of its columns and is
-	      thus also in the range of $\mathbf{C}$.
+		      \item Writing out the matrix multiplication, we get:
+		            $$
+			            \left[\begin{array}{cccc}
+					            a_{11}  & a_{12} & \cdots & a_{1 k} \\
+					            a_{21}  & a_{22} &        & a_{2 k} \\
+					            \vdots  &        & \ddots & \vdots  \\
+					            a_{n 1} & a_{n2} & \cdots & a_{n k}
+				            \end{array}\right]
+			            \left[\begin{array}{cccc}
+					            b_{11}  & b_{12}  & \cdots & b_{1 m} \\
+					            b_{21}  & b_{22}  &        & b_{2 m} \\
+					            \vdots  &         & \ddots & \vdots  \\
+					            b_{k 1} & b_{k 2} & \cdots & b_{k m}
+				            \end{array}\right]=
+			            \left[\begin{array}{cccc}
+					            c_{11}  & c_{12}  & \cdots & c_{1 m} \\
+					            c_{21}  & c_{22}  &        & c_{2 m} \\
+					            \vdots  &         & \ddots & \vdots  \\
+					            c_{n 1} & c_{n 2} & \cdots & c_{n m}
+				            \end{array}\right]
+		            $$
+		            It is clear that the matrix $\mathbf{A}$ consists of $k$ column
+		            vectors of length $n$, and the matrix $\mathbf{C}$ consists of $m$
+		            column vectors of length $n$. By
+		            definition, $\mathcal{R}(\mathbf{A})$ is the span of its column
+		            vectors. Since each column vector of $\mathbf{C}$ is a linear
+		            combination of the column vectors of $\mathbf{A}$ (with coefficients
+		            defined by $\mathbf{B}$), it follows that
+		            the column vectors of $\mathbf{C}$ are in the span of the column
+		            vectors of $\mathbf{A}$.
+
+		      \item To show that $\mathcal{R}(\mathbf{C})$ is a subspace, we must
+		            show that it satisfies the three properties of a subspace. To show
+		            that $\mathcal{R}(\mathbf{C})$ contains the zero vector, we can
+		            multiply all columns of $\mathbf{C}$ by the zero vector, which will
+		            return the zero vector. To show that $\mathcal{R}(\mathbf{C})$ is
+		            closed under addition, we can add two columns of $\mathbf{C}$ to get
+		            a vector that is a linear combination of the columns of $\mathbf{C}$,
+		            and is thus in the range of $\mathbf{C}$.
+		            Finally, to show that $\mathcal{R}(\mathbf{C})$ is closed under scalar
+		            multiplication, we can multiply a column of $\mathbf{C}$ by a scalar
+		            to get a vector that is a linear combination of its columns and is
+		            thus also in the range of $\mathbf{C}$.
+	      \end{enumerate}
 
 	      \par Together, we have shown that $\mathcal{R}(\mathbf{C})$ is a subspace
 	      of $\mathcal{R}(\mathbf{A})$. \qed
@@ -127,7 +130,7 @@
 
 	      % SOLUTION BEGINS HERE
 	      \par \textbf{Solution:}
-	      To determine the subspace that $\mathcal{R}\left( \mathbf{C}^T
+	      \par To determine the subspace that $\mathcal{R}\left( \mathbf{C}^T
 		      \right)$ belongs to, let's examine its dimensions. From the definition
 	      of transpose, we have:
 	      $$

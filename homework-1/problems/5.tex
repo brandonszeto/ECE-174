@@ -7,22 +7,208 @@ subspace. If no, give a counterexample.
 		      x=\left[x_{1}x_{2}x_{3}\right]^T \in \mathbb{R}^3 | x_1 - x_2 +
 		      \pi x_3 = 0
 		      \right\}$
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par To determine if the set of matrices $s_5$ forms a subspace, we need
+	      to check if it satisfies the three properties that define a subspace:
+	      \begin{enumerate}[label=\roman*.]
+		      \item \textbf{Contains the zero vector:}
+		            When $x_1 = x_2 = x_3 = 0$, we have
+		            $0 - 0 + \pi 0 = 0$.
+		      \item \textbf{Closed under vector addition:}
+		            Let's consider two vectors
+		            $\mathbf{a} = \left[ a_1, a_2, a_3\right]^T$ and $\mathbf{b} = \left[ b_1, b_2,
+				            b_3\right]^T$ that satisfy $a_1 - a_2 + \pi a_3 = 0$ and $b_1 -
+			            b_2 + \pi b_3$ respectively. Now lets consider their sum
+		            $\mathbf{a} + \mathbf{b} = \left[ a_1 + b_1, a_2 + b_2, a_3 +
+				            b_3\right]^T$. We need to check if $x_1 - x_2 + \pi x_3 = 0$ still
+		            holds. We have $(a_1 + b_1) - (a_2 + b_2) + \pi(a_3 + b_3) =
+			            0 = (a_1 - a_2 + \pi a_3) + (b_1 - b_2 + \pi b_3) = 0 + 0 = 0$.
+		            Thus, $\mathbf{a} + \mathbf{b}$ demonstrate that $s_1$ is closed
+		            under vector addition.
+		      \item \textbf{Closed under scalar multiplication:}
+		            Let
+		            $\mathbf{a} = \left[ a_1, a_2, a_3\right]^T$ satisfy $a_1 - a_2 + \pi
+			            a_3 = 0$.
+		            Now let's consider the multiplication of $\mathbf{a}$ by a scalar $k$:
+		            $k\mathbf{a} = \left[ ka_1, ka_2, ka_3\right]^T$. We need to check if
+		            $x_1 - x_2 + \pi x_3 = 0$ still holds. We have $(ka_1) - (ka_2) +
+			            \pi(ka_3) = k(a_1 - a_2 + \pi a_3) = k \dot 0 = 0$. Thus,
+		            $k\mathbf{a}$ demonstrate that $s_1$ is also closed under scalar
+		            multiplication.
+	      \end{enumerate}
+
 	\item
 	      $s_{2} =
 		      \left\{
 		      x=\left[x_{1}x_{2}x_{3}\right]^T \in \mathbb{R}^3 | x_1 + 3x_2 -
 		      x_3 = 1.22
 		      \right\}$
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par No, $s_2$ is not a subspace. Let $x_1 = x_2 = x_3 = 0$. We need
+	      to check if $x_1 + 3x_2 - x_3 = 1.22$ still holds. However, we have $0
+		      - 3 \dot 0 - 0 \neq 1.22$. Thus, $s_2$ does not contain the zero
+	      vector and is not a subspace.
 	\item
 	      $s_{3} =
 		      \left\{
 		      x=\left[x_{1}x_{2}x_{3}x_{4}\right]^T \in \mathbb{R}^4 | x_1x_4 =
 		      x_2x_3 \right\}$
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par No, $s_3$ is not a subspace. Consider two vectors
+	      $\mathbf{a}=\left[ a_1 a_2 a_3 a_4\right]^T$  and $\mathbf{b} = \left[ b_1 b_2
+			      b_3 b_4 \right]^T$ that satisfy $a_1a_4 = a_2a_3$ and $b_1b_4
+		      = b_2b_3$ respectively. Now lets consider their sum
+	      $\mathbf{a} + \mathbf{b} = \left[ a_1 + b_1, a_2 + b_2, a_3 +
+			      b_3, a_4 + b_4 \right]^T$. To be a subspace, the sum of these
+	      vectors must satisfy $(a_1 + b_1)(a_4 + b_4) = (a_2 + b_2)(a_3
+		      + b_3)$. However, distributing and simplifying, we are left
+	      with $a_4b_1 + a_1b_4 \neq a_2b_3 + a_3b_2$. Thus, $s_2$ is
+	      not closed under vector addition and is not a subspace.
 	\item
 	      $s_{4} =
 		      \left\{
 		      x=\left[x_{1}x_{2}x_{3}x_{4}\right]^T \in \mathbb{R}^4 | x_1 =
 		      -2x_2, x_2 + x_3 + x_4 = 0 \right\}$
-	\item
-	\item
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par To determine if the set of matrices $s_5$ forms a subspace, we need
+	      to check if it satisfies the three properties that define a subspace:
+	      \begin{enumerate}[label=\roman*.]
+		      \item \textbf{Contains the zero vector:}
+		            When $x_1 = x_2 = x_3 = x_4 = 0$, we have
+		            $0 = -2 \dot 0$ and $0 + 0 + 0 = 0$.
+		      \item \textbf{Closed under vector addition:}
+		            Let's consider two vectors
+		            $\mathbf{a} = \left[ a_1, a_2, a_3, a_4 \right]^T$ and $\mathbf{b} = \left[ b_1, b_2,
+				            b_3, b_4 \right]^T$ that both satisfy $a_1 = -2a_2, a_2 + a_3
+			            + a_4 = 0$ and $b_1 = -2b_2, b_2 + b_3 + b_4 = 0$ respectively
+
+		            . Now lets consider their sum
+		            $\mathbf{a} + \mathbf{b} = \left[ a_1 + b_1, a_2 + b_2, a_3 +
+				            b_3, a_4 + b_4\right]^T$. We need to check if $ x_1 =
+			            -2x_2, x_2 + x_3 + x_4 = 0 $ still
+		            holds. We have $(a_1 + b_1) = -2(a_2 + b_2) =
+			            0 $ and $(a_2 + b_2) + (a_3 + b_3) + (a_4 + b_4) = 0$. Each of
+		            these equations can be written in terms of only $\mathbf{a}$ and
+		            $\mathbf{b}$ like $(a_1 + 2a_2) + (b_1 + 2b_2) = 0$ and $(a_2 +
+			            a_3 + a_4) + (b_2 + b_3 + b_4) = 0$.
+		            Thus, $\mathbf{a} + \mathbf{b}$ demonstrate that $s_4$ is closed
+		            under vector addition.
+		      \item \textbf{ Closed under scalar multiplication:}
+		            Let
+		            $\mathbf{a} = \left[ a_1, a_2, a_3, a_4\right]^T$ satisfy $a_1 =
+			            -2a_2, a_2 + a_3 + a_4 = 0$.
+		            Now let's consider the multiplication of $\mathbf{a}$ by a scalar $k$:
+		            $k\mathbf{a} = \left[ ka_1, ka_2, ka_3, ka_4\right]^T$. We need to check if
+		            $x_1 = -2x_2, a_2 + a_3 + a_4= 0$ still holds. We have $ka_1 = -2ka_2,
+			            ka_2 + ka_3 + ka_4 = 0$. This simplifies to $a_1 = -2a_2, a_2 + a_3 +
+			            a_4 = 0$ Thus,
+		            $k\mathbf{a}$ demonstrate that $s_1$ is also closed under scalar
+		            multiplication.
+	      \end{enumerate}
+
+	\item A square matrix $\mathcal{A} \in \mathbb{R}^{M \times M}$ is
+	      symmetric if $\mathcal{A} = \mathcal{A}^T$. For a given symmetric
+	      matrix $\mathcal{A} \in \mathbb{R}^{M \times M}$, and $\lambda \in
+		      \mathbb{R}$, the set
+	      $$s_{5} =
+		      \left\{
+		      x \in \mathbb{R}^M | \mathbf{Ax} = \sqrt{3}\lambda \mathbf{x}
+		      \right\}$$
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par To determine if the set of matrices $s_5$ forms a subspace, we need
+	      to check if it satisfies the three properties that define a subspace:
+
+	      \begin{enumerate}[label=\roman*.]
+		      \item \textbf{Contains the zero vector:}
+		            When $\mathbf{x} = 0$, we have $\mathbf{A} \dot 0 =
+			            \sqrt{3}\lambda \dot 0$ and $0 = 0$.
+		      \item \textbf{Closed under vector addition:}
+		            Let's consider two vectors $\mathbf{a}$ and $\mathbf{b}$ that
+		            both satisfy $\mathbf{Ax} = \sqrt{3}\lambda \mathbf{x}$.
+		            We need to verify that their sum
+		            $\mathbf{a} + \mathbf{b}$ satisfies $\mathbf{Ax} = \sqrt{3}\lambda
+			            \mathbf{x}$. We have $\mathbf{A}(\mathbf{a} + \mathbf{b}) =
+			            \sqrt{3}\lambda (\mathbf{a} + \mathbf{b})$. Distributing, we have
+		            $\mathbf{Aa} + \mathbf{Ab} = \sqrt{3}\lambda \mathbf{a} + \sqrt{3}\lambda
+			            \mathbf{b}$.
+		            Thus, $\mathbf{a} + \mathbf{b}$ demonstrate that $s_5$ is closed
+		            under vector addition.
+		      \item \textbf{Closed under scalar multiplication:}
+		            Let $\mathbf{a}$ satisfy $\mathbf{Ax} = \sqrt{3}\lambda
+			            \mathbf{x}$.
+		            Now consider the multiplication of $\mathbf{a}$ by a scalar $k$.
+		            Verifying that $k\mathbf{a}$ still satisfies $\mathbf{Ax} = \sqrt{3}\lambda
+			            \mathbf{x}$, we have $k\mathbf{Aa} = k\sqrt{3}\lambda
+			            \mathbf{a}$ which reduces to $\mathbf{Aa} = \sqrt{3}\lambda
+			            \mathbf{a}$. Thus, $k\mathbf{a}$ demonstrates that $s_1$ is also closed under scalar
+		            multiplication.
+
+	      \end{enumerate}
+
+	\item The set of matrices:
+	      $$s_{6} =
+		      \left\{
+		      x \in \mathbb{R}^{M \times M} | \sum_{i=1}^{M}w_i^2X_{i,i} =
+		      0
+		      \right\}$$
+	      where $w_1, w_2, \ldots w_M \in \mathbb{R}$ are given scalars.
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par To determine if the set of matrices $s_6$ forms a subspace, we need
+	      to check if it satisfies the three properties that define a subspace:
+
+	      \begin{enumerate}[label=\roman*.]
+		      \item \textbf{Contains the zero vector:} The zero vector is a matrix in $\mathbb{R}^{M \times M}$
+		            with all elements equal to zero. In this case, the zero vector $0$ would
+		            be $X_{i,j} = 0$ for all $i$ and $j$, and since all $w_i$ are scalars,
+		            the condition $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$ is satisfied for the zero
+		            vector.
+
+		      \item \textbf{Closed under vector addition:} Consider two matrices $A$ and $B$ in $s_6$, which means
+		            they both satisfy $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$. Now, let's consider the matrix
+		            $C = A + B$. We need to check if $C$ also satisfies $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$.
+
+		            $$
+			            \begin{aligned}
+				            \sum_{i=1}^{M}w_i^2C_{i,i} & = \sum_{i=1}^{M}w_i^2(A_{i,i} + B_{i,i})                   \\
+				                                       & = \sum_{i=1}^{M}(w_i^2A_{i,i} + w_i^2B_{i,i})              \\
+				                                       & = \sum_{i=1}^{M}w_i^2A_{i,i} + \sum_{i=1}^{M}w_i^2B_{i,i}  \\
+				                                       & = 0 + 0 \quad \text{(Since both $A$ and $B$ are in $s_6$)} \\
+				                                       & = 0
+			            \end{aligned}
+		            $$
+
+		            So, $C$ also satisfies $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$, and therefore $s_6$ is
+		            closed under vector addition.
+
+		      \item \textbf{Closed under scalar multiplication:} Consider a matrix $A$ in $s_6$, which means it satisfies
+		            $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$. Now, let's consider the matrix $kA$, where $k$
+		            is a scalar. We need to check if $kA$ also satisfies $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$.
+
+		            $$
+			            \begin{aligned}
+				            \sum_{i=1}^{M}w_i^2(kA)_{i,i} & = \sum_{i=1}^{M}w_i^2(kA_{i,i})             \\
+				                                          & = k\sum_{i=1}^{M}(w_i^2A_{i,i})             \\
+				                                          & = k(0) \quad \text{(Since $A$ is in $s_6$)} \\
+				                                          & = 0
+			            \end{aligned}
+		            $$
+
+		            So, $kA$ also satisfies $\sum_{i=1}^{M}w_i^2X_{i,i} = 0$, and therefore $s_6$ is
+		            closed under scalar multiplication.
+
+	      \end{enumerate}
+
+	      Since $s_6$ satisfies all three properties, it is indeed a subspace of $\mathbb{R}^{M \times M}$.
 \end{enumerate}

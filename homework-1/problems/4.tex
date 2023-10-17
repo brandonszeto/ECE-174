@@ -21,9 +21,44 @@ $\mathbf{b}_1, \mathbf{b}_2, \ldots,
 	      assumptions about $b_1, b_2, \ldots, b_k$ are made. Can we conclude that
 	      the stacked vectors
 	      $c_1, c_2, \ldots, c_k$ are linearly independent?
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par We can conclude that the stacked vectors $c_1, c_2, \ldots, c_k$
+	      are also linearly independent. Suppose $\alpha_1 c_1 + \ldots
+		      \alpha_kc_k = 0$. Then we have $\alpha_1 a_1 + \ldots \alpha_ka_k = 0$
+	      and $\alpha_1 b_1 + \ldots \alpha_kb_k = 0$. Since $a_1 \ldots a_k$ are
+	      linearly independent, we must have $\alpha_1 \ldots \alpha_k = 0$.
+	      Thus, $c_1 \ldots c_k$ are linearly independent. \qed
+
 	\item Suppose $a_1, a_2, \ldots, a_k$ are linearly dependent. Again, no
 	      assumptions about $b_1, b_2, \ldots, b_k$ are made. Can we conclude that
 	      the stacked vectors
 	      $c_1, c_2, \ldots, c_k$ are linearly independent?
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par Vectors $c_1 \ldots c_k$ are not necessarily linearly independent.
+	      In the case that $b_1 \ldots b_k$ are linearly independent, $c_1
+		      \ldots c_k$ must also be linearly independent. However, in the case
+	      where $b_1 \ldots b_k$ are linearly dependent, there is no guarantee
+	      that $c_1 \ldots c_k$ are linearly dependent or independent, and the
+	      linear dependence or independence of the stacked vectors $c_1 \ldots
+		      c_k$ will rely on the relationship between the vectors $a_1 \ldots
+		      a_k$ and $b_1 \ldots b_k$. \qed
+
 	\item What happens in parts (a) and (b) when $m > n$?
+
+	      % SOLUTION
+	      \par \textbf{Solution:}
+	      \par (a) Nothing will change. As long as one set of vectors is
+	      linearly independent, their stacked vectors will be independent.
+	      \par (b) In the case where $\mathbf{B}$ is linearly independent,
+	      nothing will change. One set of vectors being linearly independent
+	      make it such that the stacked vetors will be linearly independent.
+	      However, in the case where $\mathbf{B}$ is linearly dependent, a
+	      greater number of vectors contributed by $\mathbf{B}$ would correspond
+	      to a greater likelihood that the stacked vectors are linearly
+	      dependent.
+
 \end{enumerate}
