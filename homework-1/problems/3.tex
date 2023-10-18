@@ -75,27 +75,10 @@
 	      \par $\mathcal{N}(\mathbf{B})$ will contain only
 	      the zero vector. Because $\mathcal{N}(\mathbf{A})$ contains
 	      only the zero vector, only the zero vector $\mathbf{x} = 0$ satisfies
-	      $\mathbf{A}\mathbf{x} = \mathbf{0}$. Expanding $\mathbf{B}$, we have:
-	      $$
-		      \mathbf{Bx} =
-		      \left[\begin{array}{lll}
-				      \mathbf{A} &
-				      \mathbf{A} &
-				      \mathbf{A}
-			      \end{array}\right]
-		      \left[\begin{array}{l}
-				      x_1 \\
-				      x_2 \\
-				      x_3
-			      \end{array}\right] =
-		      \mathbf{Ax_1} +
-		      \mathbf{Ax_2} +
-		      \mathbf{Ax_3} = 0
-	      $$
-	      Thus, $\mathcal{N}(\mathbf{B})$ contains any combination of
-	      vectors in $\mathcal{N}(\mathbf{A})$ that sum to the zero vector.
-	      However, because $\mathcal{N}(\mathbf{A})$ contains only the zero
-	      vector, $\mathcal{N}(\mathbf{B})$ must also contain only the zero.
+	      $\mathbf{A}\mathbf{x} = \mathbf{0}$. However, horizontally stacking
+          matrices $\mathbf{A}$ may introduce some linear dependence between the
+          columns of $\mathbf{B}$, which may allow for some non-zero vector
+          to satisfy $\mathbf{B}\mathbf{x} = \mathbf{0}$. 
 	      \qed
 
 	\item How is the nullspace of $\mathbf{C}$ related to the nullspace of

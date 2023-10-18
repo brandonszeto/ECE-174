@@ -31,8 +31,39 @@
 		            of all linear combinations of the vectors $\mathbf{v}_1, \mathbf{v}_2,
 			            \ldots, \mathbf{v}_{k}$. This satisfies the three properties of a
 		            subspace: setting all $\alpha_i = 0$ demonstrates that the span
-		            contains the zero vector and by the definition of linear combination,
-		            any span must be closed under addition and scalar multiplication.
+		            contains the zero vector:
+		            $$
+			            \begin{aligned}
+				            \alpha_1\mathbf{v}_1 + \alpha_2\mathbf{v}_2 \cdots +
+				            \alpha_k\mathbf{v}_k & = 0 \\
+				            0 \cdot \mathbf{v}_1 + 0 \cdot \mathbf{v}_2 \cdots +
+				            0 \cdot \mathbf{v}_k & = 0 \\
+			            \end{aligned}
+		            $$
+		            Consider two sets of vectors $\mathbf{a}$ and $\mathbf{b}$:
+		            $$
+			            \begin{aligned}
+				            (\mathbf{a}_1 + \mathbf{b}_1) +
+				            (\mathbf{a}_2 + \mathbf{b}_2) \cdots +
+				            (\mathbf{a}_k + \mathbf{b}_k) & = 0 \\
+				            (\mathbf{a}_1 + \mathbf{a}_2 \cdots + \mathbf{a}_k) +
+				            (\mathbf{b}_1 + \mathbf{b}_2 \cdots + \mathbf{b}_k)
+				                                          & = 0 \\
+				            0 + 0                         & = 0
+			            \end{aligned}
+		            $$
+		            here, we have shown that the span is closed under addition.
+		            Now consider some scalar $\alpha$:
+		            $$
+			            \begin{aligned}
+				            \alpha(\mathbf{a}_1 + \mathbf{a}_2 \cdots + \mathbf{a}_k) & = 0 \\
+				            \alpha \cdot 0                                            & = 0 \\
+			            \end{aligned}
+		            $$
+		            Here, we have shown that the span is closed under scalar
+		            multiplication.
+
+
 	      \end{enumerate}
 
 	      \par Together, this shows that $\operatorname{span}\left\{\mathbf{v}_{2},
@@ -47,8 +78,32 @@
 	      \par \textbf{Solution:}
 	      \par The null space $\mathcal{N}(\mathbf{A})$ consists of all solutions $\mathbf{x}$
 	      to the equation $\mathbf{A}\mathbf{x} = \mathbf{0}$, where $A \in
-		      \mathbb{R}^{m \times n}$. In this equation, $\mathbf{x}$ must be a column vector with $n$
-	      elements to satisfy matrix-vector multiplication. Therefore, the solutions to this equation are $n$-dimensional vectors,
-	      and are a subspace of $\mathbb{R}^n$. \qed
+		      \mathbb{R}^{m \times n}$. In this equation, $\mathbf{x}$ must be a
+	      column vector with $n$ elements, and is thus a subset of
+	      $\mathbb{R}^n$. However, we must also prove
 
+	      \begin{enumerate}[label=\roman*.]
+		      \item $\mathcal{N}(\mathbf{A})$ contains the zero vector.
+		            Trivially, when $\mathbf{x} = 0$
+		            $\mathbf{Ax} = 0$
+		      \item Now consider two non-trivial solutions $\mathbf{a}$ and
+		            $\mathbf{b}$ that satisfy $\mathbf{Ax} = 0$:
+		            $$
+			            \begin{aligned}
+				            \mathbf{A}(\mathbf{a} + \mathbf{b}) & = 0 \\
+				            \mathbf{Aa} + \mathbf{Ab}           & = 0 \\
+				            0 + 0                               & = 0
+			            \end{aligned}
+		            $$
+		            Thus, $\mathcal{N}(\mathbf{A})$ is closed under addition.
+		      \item Now consider some scalar $\alpha$:
+		            $$
+			            \begin{aligned}
+				            \alpha\mathbf{Ax} & = 0 \\
+				            \alpha \cdot 0    & = 0 \\
+			            \end{aligned}
+		            $$
+	      \end{enumerate}
+	      Together, this shows that $\mathcal{N}(\mathbf{A})$ is a subspace of
+	      $\mathbb{R}^n$. \qed
 \end{enumerate}
