@@ -1,0 +1,49 @@
+Suppose $\left\{ \mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\right\}$ forms
+a basis of $\mathbb{R}^n$ and $\mathbf{A} \in \mathbb{R}^{n \times n}$ is a
+matrix with linearly independent columns. Define $\mathbf{u}_1 = \mathbf{A}
+	\mathbf{v}_1, \mathbf{u}_2 = \mathbf{A} \mathbf{v}_2, \ldots , \mathbf{u}_n
+	= \mathbf{A} \mathbf{v}_n$. Show that $\left\{ \mathbf{u}_1, \mathbf{u}_2,
+	\ldots, \mathbf{u}_n\right\}$ also forms a basis of $\mathbb{R}^n$.
+
+\begin{tcolorbox}
+	\textbf{Solution:} \par
+	To prove that $\left\{ \mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\right\}$
+	forms a basis of $\mathbb{R}^n$, we must show that the set is linearly
+	independent and spans $\mathbb{R}^n$.
+	\begin{enumerate}
+		\item \textbf{Linear Independence:} \par
+		      Suppose that there exists a set of scalars $\left\{ c_1, c_2, \ldots,
+			      c_n \right\}$ such that:
+		      $$
+			      c_1 \mathbf{u}_1 + c_2 \mathbf{u}_2 +
+			      \ldots + c_n \mathbf{u}_n = \mathbf{0}
+		      $$
+		      From the above definition, we know that $\mathbf{u}_i =
+			      \mathbf{A}\mathbf{v}_i$ for all $i$. Therefore, we can rewrite the
+		      above as:
+		      $$
+			      c_1 \mathbf{A}\mathbf{v}_1 + c_2 \mathbf{A}\mathbf{v}_2 +
+			      \ldots + c_n \mathbf{A}\mathbf{v}_n = \mathbf{0}
+		      $$
+		      Factoring out $\mathbf{A}$, we get:
+		      $$
+			      \mathbf{A} \left(c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 +
+			      \ldots + c_n \mathbf{v}_n \right) = \mathbf{0}
+		      $$
+		      Because we know that $\left\{ \mathbf{v}_1, \mathbf{v}_2, \ldots,
+			      \mathbf{v}_n\right\}$ forms a basis of $\mathbb{R}^n$, its
+		      vectors must be linearly independent. Therefore, the only way
+		      for the above equation to hold is when all $c_i = 0$. Thus,
+		      $\left\{ \mathbf{u}_1, \mathbf{u}_2, \ldots,
+			      \mathbf{u}_n\right\}$ must also be linearly independent.
+
+		\item \textbf{Span:} \par
+		      We know that $\left\{\mathbf{v}_1, \mathbf{v}_2, \ldots,
+			      \mathbf{v}_n\right\}$ forms a basis of $\mathbb{R}^n$, which means
+		      that they span $\mathbb{R}^n$. Since $\mathbf{u}_i = \mathbf{A}
+			      \mathbf{v}_i$ for each $i$, it follows that the set $\left\{\mathbf{u}_1,
+			      \mathbf{u}_2, \ldots, \mathbf{u}_n\right\}$ spans the same subspace as
+		      $\left\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\right\}$. Therefore,
+		      $\left\{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\right\}$ spans $\mathbb{R}^n$.
+	\end{enumerate}
+\end{tcolorbox}

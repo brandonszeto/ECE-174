@@ -1,0 +1,63 @@
+\begin{enumerate}[label=(\alph*)]
+	\item Consider two points $\mathbf{x,y} \in \mathbb{R}^2$ where $\mathbf{x}$ is
+	      obtained by rotating $\mathbf{y}$ by counterclockwise by $45^{\circ}$.
+	      Can you find a matrix $\mathbf{A}$ such that $\mathbf{x} = \mathbf{A}
+		      \mathbf{y}$? Does the matrix depend on the choice of $\mathbf{y}$
+	      or $\mathbf{x}$?
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \par
+		      Let
+		      $$
+			      \mathbf{A} = \begin{bmatrix}
+				      \cos 45^{\circ} & -\sin 45^{\circ} \\
+				      \sin 45^{\circ} & \cos 45^{\circ}\end{bmatrix}
+		      $$
+		      This matrix rotates a point in $\mathbb{R}^2$ by $45^{\circ}$
+		      counterclockwise. Regardless of the choice of $\mathbf{x}$
+		      or $\mathbf{y}$, the matrix $\mathbf{A}$ will always rotate
+		      the point $45^{\circ}$ counterclockwise.	      \end{tcolorbox}
+	\item Consider the line in $\mathbb{R}^2$ that passes through origin and the
+	      point $\left[ 2, -3 \right]^T$. Consider any point $\mathbf{x} \in
+		      \mathbb{R}^2$ and let $\mathbf{z}$ be the point on this line which is
+	      closest to $\mathbf{x}$ (you can choose your own notion of distance in
+	      $\mathbb{R}^2$ as long as you are able to answer the question). Can you
+	      find a matrix $\mathbf{B}$ such that $\mathbf{z} = \mathbf{Bx}$? Does
+	      $\mathbf{B}$ depend on $\mathbf{x}$?
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \par
+		      We know that $\mathbf{z}$ is the projection of $\mathbf{x}$ onto the line
+		      that passes through the origin and $\left[ 2, -3 \right]^T$. Thus,
+		      everyone point $\mathbf{z}$ is some scalar multiple of $\left[ 2, -3
+				      \right]^T$. To find this scalar, we can use the
+		      equation of a projection:
+
+		      $$
+			      \mathbf{z} = \frac{\mathbf{x} \cdot \mathbf{y}}{\mathbf{y}
+				      \cdot \mathbf{y}} \cdot \mathbf{y}
+		      $$
+		      Where $\mathbf{x} \in \mathbb{R}^2$ is the vector we are mapping
+		      onto a line, $\mathbf{y} = \left[ 2, -3 \right]^T$ is the vector of the
+		      line, and $\mathbf{z}$ is the final mapping of the line. Thus, we
+		      can plug in the values of $\mathbf{y}$ to get:
+		      $$
+			      \begin{aligned}
+				      \mathbf{z} & = \frac{\mathbf{x} \cdot \left[ 2, -3
+						      \right]^T}{|| \left[ 2, -3 \right]^T ||^2} \cdot
+				      \left[ 2, -3 \right]^T                                   \\
+				                 & = \frac{2x_1 - 3x_2}{13} \cdot \left[ 2, -3
+					      \right]
+			      \end{aligned}
+		      $$
+		      We can convert this to matrix form:
+		      $$
+			      \mathbf{B} =
+			      \begin{bmatrix}
+				      \frac{4}{13}  & -\frac{6}{13} \\
+				      -\frac{6}{13} & \frac{9}{13}
+			      \end{bmatrix}
+		      $$
+		      Here, $\mathbf{B}$ does not depend on the vector $\mathbf{x}$ that
+		      you want to project onto the line, but does depend on the vector
+		      $\mathbf{y}$ that defines the line.
+	      \end{tcolorbox}
+\end{enumerate}

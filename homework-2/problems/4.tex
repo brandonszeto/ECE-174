@@ -1,0 +1,101 @@
+\textit{Symmetric and anti-symmetric part.} An $n$-vector $x$ is
+\textit{symmetric} if $x_k = x_{n-k+1}$ for $k = 1, \ldots, n$. It is
+\textit{anti-symmetric} if $x_k = -x_{n-k+1}$ for $k = 1, \ldots, n$.
+\begin{enumerate}[label=(\alph*)]
+	\item Show that every vector $x$ can be decomposed in a unique way as sum $x
+		      = x_s + x_a$ of a symmetric vector $x_s$ and an anti-symmetric vector
+	      $x_a$.
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \par
+		      Suppose $\mathbf{x} = \mathbf{s} + \mathbf{a}$ where $\mathbf{s}$
+		      is symmetric and $\mathbf{a}$ is anti-symmetric. For $k = 1,
+			      \ldots, n$, we have:
+		      $$
+			      \mathbf{x}_k = \mathbf{s}_k + \mathbf{a}_k
+		      $$
+		      and
+		      $$
+			      \mathbf{x}_{n - k + 1} = \mathbf{s}_{n - k + 1} +
+			      \mathbf{a}_{n - k + 1} = \mathbf{s}_k - \mathbf{a}_k \\
+		      $$
+		      Using the above equations, we can write $\mathbf{s}_k$ and
+		      $\mathbf{a}_k$ in terms of $\mathbf{x}$. Thus we have:
+		      $$
+			      \begin{aligned}
+				      \mathbf{s}_k & = \mathbf{x}_k - \mathbf{a}_k             \\
+				                   & = \mathbf{x}_k + \mathbf{x}_{n - k + 1} -
+				      \mathbf{s}_k                                             \\
+				                   & = \frac{1}{2} \left( \mathbf{x}_k +
+				      \mathbf{x}_{n - k + 1} \right)                           \\
+			      \end{aligned}
+		      $$
+		      Similarly, we have:
+		      $$
+			      \begin{aligned}
+				      \mathbf{a}_k & = \mathbf{x}_k - \mathbf{s}_k             \\
+				                   & = \mathbf{x}_k - \mathbf{x}_{n - k + 1} -
+				      \mathbf{a}_k                                             \\
+				                   & = \frac{1}{2} \left( \mathbf{x}_k -
+				      \mathbf{x}_{n - k + 1} \right)                           \\
+			      \end{aligned}
+		      $$
+		      Now checking for symmetry and anti-synmmetry, we have:
+		      $$
+			      \begin{aligned}
+				      \mathbf{s}_{n - k + 1} & = \frac{1}{2} \left(
+				      \mathbf{x}_{n - k + 1} +
+				      \mathbf{x}_{n - \left( n - k + 1 \right)  + 1} \right)            \\
+				                             & = \frac{1}{2} \left( \mathbf{x}_{n - k +
+				      1} + \mathbf{x}_k\right)                                          \\
+				                             & = \mathbf{s}_k
+			      \end{aligned}
+		      $$
+		      and
+		      $$
+			      \begin{aligned}
+				      \mathbf{a}_{n - k + 1} & = \frac{1}{2} \left(
+				      \mathbf{x}_{n - k + 1} -
+				      \mathbf{x}_{n - \left( n - k + 1 \right)  + 1} \right)            \\
+				                             & = \frac{1}{2} \left( \mathbf{x}_{n - k +
+				      1} - \mathbf{x}_k\right)                                          \\
+				                             & = -\mathbf{a}_k
+			      \end{aligned}
+		      $$
+		      Therefore, we have shown that $\mathbf{x}$ can be written as
+		      the sum of a symmetric vector $\mathbf{s}$ and an anti-symmetric
+		      vector $\mathbf{a}$.
+	      \end{tcolorbox}
+	\item Show that the symmetric and anti-symmetric parts $x_s$ and $x_a$ are
+	      linear functions of $x$. Give matrices $A_s$ and $A_a$ such that $x_s =
+		      A_sx$ and $x_a = A_ax$ for all $x$.
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \par
+		      Let $\mathbf{I}$ represent the identity matrix and $\mathbf{J}$
+		      represent the flipped identity matrix both of size $m \times m$.
+		      Then we have:
+		      $$
+			      \mathbf{I} =
+			      \begin{bmatrix}
+				      1      & 0      & \cdots & 0      \\
+				      0      & \ddots &        & \vdots \\
+				      \vdots &        & \ddots & 0      \\
+				      0      & \cdots & 0      & 1
+			      \end{bmatrix}, \quad
+			      \mathbf{J} =
+			      \begin{bmatrix}
+				      0      & \cdots                & 0                     & 1      \\
+				      \vdots &                       & \reflectbox{$\ddots$} & 0      \\
+				      0      & \reflectbox{$\ddots$} &                       & \vdots \\
+				      1      & 0                     & \cdots                & 0
+			      \end{bmatrix}
+		      $$
+		      Let
+		      $$
+			      \mathbf{A}_s = \frac{1}{2} \left( \mathbf{I} + \mathbf{J} \right), \quad
+			      \mathbf{A}_a = \frac{1}{2} \left( \mathbf{I} - \mathbf{J} \right)
+		      $$
+		      Together, $\mathbf{A}_s$ and $\mathbf{A}_a$ each represent how to
+		      derive a symmetric vector $\mathbf{x}_s$ and and anti-symmetric vector
+		      $\mathbf{x}_a$ from a given vector $\mathbf{x}$.
+	      \end{tcolorbox}
+\end{enumerate}
