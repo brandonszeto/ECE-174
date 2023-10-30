@@ -28,28 +28,45 @@
 		      We know that $\mathbf{z}$ is the projection of $\mathbf{x}$ onto the line
 		      that passes through the origin and $\left[ 2, -3 \right]^T$. Thus,
 		      everyone point $\mathbf{z}$ is some scalar multiple of $\left[ 2, -3
-				      \right]^T$. To find this scalar, we can use the
-		      equation of a projection:
-
+				      \right]^T$. Therefore, the vector $\mathbf{z}$ is a
+		      multiple of $\mathbf{y}$. Thus, we can write:
 		      $$
-			      \mathbf{z} = \frac{\mathbf{x} \cdot \mathbf{y}}{\mathbf{y}
-				      \cdot \mathbf{y}} \cdot \mathbf{y}
+			      \mathbf{z} = c \mathbf{y}
 		      $$
-		      Where $\mathbf{x} \in \mathbb{R}^2$ is the vector we are mapping
-		      onto a line, $\mathbf{y} = \left[ 2, -3 \right]^T$ is the vector of the
-		      line, and $\mathbf{z}$ is the final mapping of the line. Thus, we
+		      Where $c$ is some scalar and $\mathbf{y}$ is the vector that
+		      defines the line. Now we want to find a unique value for $c$ for
+		      each input $\mathbf{x} \in \mathbb{R}^2$ that we are mapping onto
+		      $\mathbf{z}$. We can do this with the following equation:
+		      \[
+			      \frac{ \langle \mathbf{x}, \mathbf{y} \rangle}{ || \mathbf{y}
+				      ||_2^2}
+		      \]
+		      Here, the dot product of $\mathbf{x}$ and $\mathbf{y}$ is a
+		      measure of how similar the $\mathbf{x}$ is to $\mathbf{y}$.
+		      The more similar they
+		      are, the larger the inner product will be. The more different they
+		      are, the smaller the inner product will be. However, since the
+		      similarity of the two vectors is relative to the magnitude of
+		      $\mathbf{y}$, we divide by the magnitude of $\mathbf{y}$ to
+		      normalize the value. Thus, we
 		      can plug in the values of $\mathbf{y}$ to get:
 		      $$
 			      \begin{aligned}
 				      \mathbf{z} & = \frac{\mathbf{x} \cdot \left[ 2, -3
-						      \right]^T}{|| \left[ 2, -3 \right]^T ||^2} \cdot
+						      \right]^T}{|| \left[ 2, -3 \right]^T ||_2^2} \cdot
 				      \left[ 2, -3 \right]^T                                   \\
 				                 & = \frac{2x_1 - 3x_2}{13} \cdot \left[ 2, -3
-					      \right]
+					      \right]^T
 			      \end{aligned}
 		      $$
 		      We can convert this to matrix form:
 		      $$
+			      \mathbf{z} =
+			      \begin{bmatrix}
+				      \frac{4}{13}  & -\frac{6}{13} \\
+				      -\frac{6}{13} & \frac{9}{13}
+			      \end{bmatrix}
+			      \mathbf{x}, \quad
 			      \mathbf{B} =
 			      \begin{bmatrix}
 				      \frac{4}{13}  & -\frac{6}{13} \\

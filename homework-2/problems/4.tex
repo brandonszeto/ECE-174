@@ -89,13 +89,32 @@
 				      1      & 0                     & \cdots                & 0
 			      \end{bmatrix}
 		      $$
-		      Let
+		      Let $n$ be the length of the vectors $\mathbf{x}$. In the case that
+		      $n = 2m$ (is even), we have:
 		      $$
 			      \mathbf{A}_s = \frac{1}{2} \left( \mathbf{I} + \mathbf{J} \right), \quad
 			      \mathbf{A}_a = \frac{1}{2} \left( \mathbf{I} - \mathbf{J} \right)
 		      $$
+		      In the case that $n = 2m  + 1$ (is odd), we have:
+		      $$
+			      \mathbf{A}_s =
+			      \begin{bmatrix}
+				      \frac{1}{2} \mathbf{I} & 0 & \frac{1}{2} \mathbf{J} \\
+				      0                      & 1 & 0                      \\
+				      \frac{1}{2} \mathbf{J} & 0 & \frac{1}{2} \mathbf{I}
+			      \end{bmatrix}, \quad
+			      \mathbf{A}_a =
+			      \begin{bmatrix}
+				      \frac{1}{2} \mathbf{I}  & 0 & -\frac{1}{2} \mathbf{J} \\
+				      0                       & 0 & 0                       \\
+				      -\frac{1}{2} \mathbf{J} & 0 & \frac{1}{2} \mathbf{I}
+			      \end{bmatrix}
+		      $$
 		      Together, $\mathbf{A}_s$ and $\mathbf{A}_a$ each represent how to
 		      derive a symmetric vector $\mathbf{x}_s$ and and anti-symmetric vector
-		      $\mathbf{x}_a$ from a given vector $\mathbf{x}$.
+		      $\mathbf{x}_a$ from a given vector $\mathbf{x}$. By multiplying a
+		      vector $\mathbf{x}$ by $\mathbf{A}_s$ or $\mathbf{A}_a$, we arrive
+		      at our desired symmetric or anti-symmetric vector using only
+		      linear operations.
 	      \end{tcolorbox}
 \end{enumerate}
