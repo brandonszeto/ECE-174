@@ -1,0 +1,135 @@
+\section{\small Properties:}
+\[
+	\mathbb{R}^n =
+	\left\{
+	\begin{bmatrix}
+		x_1    \\
+		x_2    \\
+		\vdots \\
+		x_n
+	\end{bmatrix},
+	x_1, x_2, \dots, x_n \in \mathbb{R}
+	\right\}
+\]
+Here, $\mathbb{R}^n$ is the set of \textit{all possible} real-valued $n$-tuples
+(depicted as column vectors) which must be closed under vector addition and
+scalar multiplication. \\
+
+\section{\small Vector addition:}
+ ($\mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}^n$):
+\[
+	x =
+	\begin{bmatrix}
+		x_1    \\
+		\vdots \\
+		x_n
+	\end{bmatrix} \in \mathbb{R}^n,
+	y =
+	\begin{bmatrix}
+		y_1    \\
+		\vdots \\
+		y_n
+	\end{bmatrix} \in \mathbb{R}^n
+\]
+\[
+	x + y =
+	\begin{bmatrix}
+		x_1 + y_1 \\
+		\vdots    \\
+		x_n + y_n
+	\end{bmatrix} \in \mathbb{R}^n
+\]
+
+\section{\small Scalar multiplication}
+ ($\mathbb{R} \times \mathbb{R}^n \rightarrow \mathbb{R}^n$)
+\[
+	x =
+	\begin{bmatrix}
+		x_1    \\
+		\vdots \\
+		x_n
+	\end{bmatrix} \in \mathbb{R}^n,
+	\alpha \in \mathbb{R}
+\]
+\[
+	\alpha \cdot x =
+	\begin{bmatrix}
+		\alpha \cdot x_1 \\
+		\vdots           \\
+		\alpha \cdot x_n
+	\end{bmatrix} \in \mathbb{R}^n
+\]
+
+% \textbf{Properties:}
+% \begin{enumerate}
+% 	\item $\mathbb{R}^n$ is closed under vector addition and scalar
+% 	      multiplication.
+% 	\item $\vec{x} + \vec{y} = \vec{y} + \vec{x} \quad \forall \vec{x}, \vec{y} \in
+% 		      \mathbb{R}^n$
+% 	\item $(\vec{x} + \vec{y}) + \vec{z} = \vec{x} + (\vec{y} + \vec{z}) \quad
+% 		      \forall \vec{x}, \vec{y}, \vec{z} \in \mathbb{R}^n$
+% 	\item $\alpha(\beta \vec{x}) = (\alpha \beta) \vec{x} \quad \forall \vec{x} \in \mathbb{R}^n, \alpha, \beta \in \mathbb{R}$
+% 	\item $\alpha \cdot (\vec{x} + \vec{y}) = \alpha \vec{x} + \alpha \vec{y} \quad \forall \vec{x}, \vec{y} \in \mathbb{R}^n, \alpha \in \mathbb{R}$
+% 	\item $(\alpha + \beta) \vec{x} = \alpha \vec{x} + \beta \vec{x} \quad \forall \vec{x} \in \mathbb{R}^n, \alpha, \beta \in \mathbb{R}$
+% 	\item $1 \cdot \vec{x} = \vec{x} \quad \forall \vec{x} \in \mathbb{R}^n$
+% 	\item $0 \cdot \vec{x} = \vec{0} \quad \forall \vec{x} \in \mathbb{R}^n$
+% 	\item For every $\vec{x} \in \mathbb{R}^n$, there exists a unique vector
+% 	      $\vec{x}_I \in \mathbb{R}^n$ such that $\vec{x} + \vec{x}_I = \vec{0}$
+% \end{enumerate}
+
+$\mathbb{R}^n$ and $\mathbb{R}^{n \times m}$ satisfies all the properties of
+a vector space.
+
+\section{\small Matrix-Matrix Multiplication}
+
+You can multiply two matrices $ \mathbf{A} \in \mathbb{R}^{m \times p}$
+and $\mathbf{A} \in \mathbb{R}^{p \times n}$. Then the product matrix
+$\mathbf{C} = \mathbf{AB} \in \mathbb{R}^{m \times n}$ is defined as:
+\[
+	\mathbf{C}_{ij} = \sum_{k=1}^{p} \mathbf{A}_{ik} \mathbf{B}_{kj}
+\]
+
+\section{\small Transpose of a matrix}
+
+The transpose of a matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$, denoted by
+$\mathbf{A}^T$, is defined as the matrix s.t. $\mathbf{A}^T_{ij} =
+	\mathbf{A}_{ji} \forall i = 1 \ldots n, j = 1 \ldots m$. Properties include:
+
+\begin{enumerate}[label=(\roman*)]
+	\item $(\mathbf{A}^T)^T = \mathbf{A}$
+	\item $(\mathbf{A} + \mathbf{B})^T = \mathbf{A}^T + \mathbf{B}^T$
+	\item $(\mathbf{AB})^T = \mathbf{B}^T \mathbf{A}^T$
+	\item $(\alpha \mathbf{A})^{T} = \alpha \mathbf{A}^T$
+\end{enumerate}
+
+\section{\small Trace}
+The trace of an $n \times n$ matrix $\mathbf{A}$, denoted by
+$\text{tr}(\mathbf{A})$, is defined as
+\[
+	\text{tr}(\mathbf{A}) = \sum_{i=1}^{n} \mathbf{A}_{ii}
+\]
+Properties include:
+\begin{enumerate}[label=(\roman*)]
+	\item $\text{tr}(\mathbf{A} + \mathbf{B}) = \text{tr}(\mathbf{A}) + \text{tr}(\mathbf{B})$
+	\item $\text{tr}(\alpha \mathbf{A}) = \alpha \text{tr}(\mathbf{A})$
+	\item $\text{tr}(\mathbf{AB}) = \text{tr}(\mathbf{BA})$
+	\item $\text{tr}(\mathbf{A}^T) = \text{tr}(\mathbf{A})$
+\end{enumerate}
+
+\section{\small Invertible Matrices}
+An $n \times n$ matrix $\mathbf{A}$ is invertible if there exists a matrix
+$\mathbf{B}$ such that $\mathbf{AB} = \mathbf{BA} = \mathbf{I}_n$. If
+$\mathbf{A}$ is invertible, the inverse of $\mathbf{A}$ is denoted by
+$\mathbf{A}^{-1}$, and $\mathbf{A}^{-1} \mathbf{A} = \mathbf{A} \mathbf{A}^{-1}
+	= \mathbf{I}_n$. $\mathbf{A}^{-1}$  can be calculated by $\mathbf{A}^{-1} =
+	\frac{1}{\text{det}(\mathbf{A})} \text{adj}(\mathbf{A})$, where
+$\text{adj}(\mathbf{A})$ is the adjugate matrix of $\mathbf{A}$ and
+$\text{det}(\mathbf{A})$ is the determinant of $\mathbf{A}$.\\
+\textbf{2x2 Matrix:}
+Let $\mathbf{A} = \begin{bmatrix}
+		a & b \\
+		c & d
+	\end{bmatrix}$. Then $\mathbf{A}^{-1} = \frac{1}{ad - bc} \begin{bmatrix}
+		d  & -b \\
+		-c & a
+	\end{bmatrix}$

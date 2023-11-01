@@ -1,0 +1,95 @@
+\section{\small Example 1}
+
+Consider the following set $S$ in $\mathbb{R}^3$:
+\[
+	S = \left\{
+	\begin{bmatrix}
+		x \\ y \\ z
+	\end{bmatrix}
+	\in \mathbb{R}^3
+	\text{ s.t. }
+	x - 2y = 0
+	\right\}
+\]
+Let us construct a basis:
+\[
+	\begin{bmatrix}
+		x \\ y \\ z
+	\end{bmatrix} \in S
+	\leftrightarrow
+	x
+	\begin{bmatrix}
+		1 \\ \frac{1}{2} \\ 0
+	\end{bmatrix} +
+	z
+	\begin{bmatrix}
+		0 \\ 0 \\ 1
+	\end{bmatrix}
+\]
+Any vector in $S$ can be written as a linear combination of the
+two vectors above. Therefore, the two vectors form a basis for $S$.
+\[
+	S \subseteq \operatorname{span}\left\{
+	\begin{bmatrix}
+		1 \\ \frac{1}{2} \\ 0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0 \\ 0 \\ 1
+	\end{bmatrix}
+	\right\}
+\]
+Since
+\[
+	\begin{bmatrix}
+		1 \\ \frac{1}{2} \\ 0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0 \\ 0 \\ 1
+	\end{bmatrix}
+	\in S
+\]
+we have
+\[
+	\operatorname{span}\left\{
+	\begin{bmatrix}
+		1 \\ \frac{1}{2} \\ 0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0 \\ 0 \\ 1
+	\end{bmatrix}
+	\right\}
+	\subseteq S
+\]
+Together, we have
+\[
+	S = \operatorname{span}\left\{
+	\begin{bmatrix}
+		1 \\ \frac{1}{2} \\ 0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0 \\ 0 \\ 1
+	\end{bmatrix}
+	\right\}
+\]
+and the dimension of $S$ is 2.
+
+\section{\small Example 2}
+Consider the canonical vectors $\vec{e}_1 \vec{e}_2 \ldots \vec{3}_n in
+	\mathbb{R}^n$. Show that these vectors span $\mathbb{R}^n$ (i.e. any vector in
+$\mathbb{R}^n$ can be written as a linear combination of these vectors). Also
+show that these vectors are linearly independent. These above two facts imply
+that $\left\{ \vec{e}_1 \vec{e}_2 \ldots \vec{3}_n \right\}$ is a basis of
+$\mathbb{R}^n$ with dimension $n$.
+
+\section{\small Example 3}
+Given a vector $\vec{v}_0 \in \mathbb{R}^n$ where $\vec{v}_0 \neq \vec{0}$,
+consider the following set:
+\[
+	\mathcal{L}_{\vec{v}_0} = \left\{
+	\vec{x} \in \mathbb{R}^n,
+	\alpha \cdot \vec{v}_0, \alpha \in \mathbb{R}
+	\right\}
+\]
+Verify that $\{\vec{v}_0\}$ is a basis of $\mathcal{L}_{\vec{v}_0}$ (i.e. any
+vector in $\mathcal{L}_{\vec{v}_0}$ can be written as a linear combination of
+$\vec{v}_0$) with dimension 1.

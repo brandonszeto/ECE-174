@@ -1,0 +1,43 @@
+\section{\small Span:}
+
+Suppose we are given $k$ vectors $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k
+	\in \mathbb{R}^n$. Then the \textbf{span} of these vectors is the set of
+all linear combinations of these vectors.
+
+\[
+	\operatorname{span} \left\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_l \right\}
+	=
+\]
+\[
+	\sum_{i = 1}^k \alpha_i \vec{v}_i, \quad \alpha_i \ldots \alpha_k \in \mathbb{R}
+\]
+
+\section{\small Line:}
+Given a vector $\vec{v}_0 \in \mathbb{R}^n$ define the following set:\\
+$ \mathbb{L}_n := \{ \vec{x} \in \mathbb{R}^n, \text{s.t. } \vec{x} = \alpha
+	\cdot \vec{v}_0 \text{ for some } \alpha \in \mathbb{R} \} $
+
+$\mathbb{L}_n$ represents a line in $\mathbb{R}^n$. It is the span of a single
+vector $\vec{v}_0$, is a subspace of $\mathbb{R}^n$, and has dimension 1.
+
+\section{\small Range:}
+Given $A \in \mathbb{R}^{m \times n}$ define the following set:
+\[
+	\begin{aligned}
+		\mathcal{R}(A) : & = \left\{ \mathbb{A} \vec{x}, \quad \vec{x} \in \mathbb{R}^n
+		\right\}                                                                        \\
+		                 & = \left\{ \sum_{i = 1}^n \vec{a}_i\vec{x}_i, \vec{x}_i \in
+		\mathbb{R} \right\}
+	\end{aligned}
+\]
+We have
+\[
+	\mathcal{R}(A) = \operatorname{span} \left\{ \vec{a}_1, \vec{a}_2, \ldots, \vec{a}_n \right\}
+\]
+$R(A)$ represents the range of $A$. It is a subspace of $\mathbb{R}^m$.
+
+\section{\small Null space:}
+Given $A \in \mathbb{R}^{m \times n}$ define the following set:
+\[
+	\mathcal{N}(A) := \left\{ \vec{x} \in \mathbb{R}^n, \quad A \vec{x} = \vec{0} \right\}
+\]

@@ -1,0 +1,55 @@
+\section{\small Basis}
+
+Given a subspace $S$ of $\mathbb{R}^n$, a set of vectors $ \left\{
+	\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \right\}$ is a \textbf{basis} if:
+
+\begin{enumerate}[label=(\roman*)]
+	\item $\operatorname{span} \left\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k
+		      \right\} = S$ (i.e. every vector in $S$ can be written as a linear
+	      combination of the vectors in the set)
+	\item The vectors are linearly independent.
+\end{enumerate}
+
+1. Every subspace has a basis \\
+2. Every basis of the same subspace of $\mathbb{R}^n$ has the same number of
+elements (or cardinality)
+
+\section{\small Basis Properties}
+
+\textbf{Unique Representation:}\\
+Let $S$ be a subspace and $\left\{ \vec{v}_1,
+	\vec{v}_2, \ldots, \vec{v}_k \right\}$ be a basis for $S$. Then every vector
+$\vec{v} \in S$ can be written \textit{uniquely} as a linear combination of
+$\left\{ \vec{v}_1, \vec{v}_2, \ldots, \vec{v}_k \right\}$.
+
+\textbf{Generating Bases:}\\
+Let $\left\{ \vec{v}_1, \vec{v}_2, \ldots,
+	\vec{v}_k \right\}$ be a basis of $\mathbb{R}^n$. Let $\mathbf{A} \in
+	\mathbb{R}^{n \times n}$ be such that $\operatorname{rank} \mathbf{A} = n$.
+Then $\left\{ \mathbf{A} \vec{v}_1, \mathbf{A} \vec{v}_2, \ldots, \mathbf{A}
+	\vec{v}_n \right\}$ is also a basis of $\mathbb{R}^n$.
+
+\textbf{Dimension-independence inequality:}\\
+Let $S$ be a subspace of dimension $k$. Let $\left\{ \vec{v}_1, \vec{v}_2,
+	\ldots, \vec{v}_p \right\}$ be a set of linearly independent vectors in $S$.
+Then we must have $p \leq k$. \textbf{Corollary:} If we have a set of $k +
+	1$ vectors, then they must be linearly dependent.
+
+\section{\small Dimension}
+The common cardinality shared by all bases of a subspace $S \in \mathbb{R}^n$ is
+known as the \textit{dimension} of $S$. Can be thought of from the perspetive of
+number of vectors in a linearly independent set (i.e. if there is no set of
+linearly independent vectors with cardinality $k + 1$, then the dimension of the
+set of vectors must be $k$.
+
+\section{\small Some facts about bases}
+\begin{enumerate}[label=(\roman*)]
+	\item Every subspace of $\mathbb{R}^n$ has a basis
+	\item Every basis of the same subspace of $\mathbb{R}^n$ has the same number of
+	      elements (or cardinality)
+	\item Let $S$ be a subspace and $\left\{ \vec{v}_1,
+		      \vec{v}_2, \ldots, \vec{v}_k \right\}$ be a basis for $S$. Then
+	      $\left\{ \alpha_1 \vec{v}_1, \alpha_2 \vec{v}_2, \ldots, \alpha_k
+		      \vec{v}_k \right\}$ is a basis for $S$ for any $\alpha_1, \alpha_2,
+		      \ldots \alpha_k \neq 0$.
+\end{enumerate}
