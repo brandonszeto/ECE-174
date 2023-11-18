@@ -1,0 +1,197 @@
+\begin{enumerate}[label=(\alph*)]
+	\item \textbf{[Problem 15.1]} \textit{A scalar multi-objective least squares
+		      problem.} We consider the special case of the multi-objective least
+	      squares problem in which the variable $x$ is a scalar, and the $k$
+	      matrices $A_i$ are all $1 \times 1$ matrices with value $A_i = 1$, so
+	      $J_i = (x - b_i)^2$. In this case, our goal is to choose a number $x$
+	      that is simultaneously close to all the numbers $b_1, \dots, b_k$. Let
+	      $\lambda_1, \dots, \lambda_k$ be positive weights, and $\hat{x}$ be the
+	      minimizer of the weighted objective (15.1). Show that $\hat{x}$ is a
+	      weighted average (or convex combination; see page 17) of the numbers
+	      $b_1, \dots, b_k$, i.e., it has the form
+	      $$ x = w_1b_1 + \cdots + w_kb_k $$
+	      where $w_i$ are nonnegative and sum to one. Give an explicit formula for
+	      the combination weights $w_i$ in terms of the multi-objective least
+	      squares weights $\lambda_i$.
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      We want to minimize
+		      $$ \lambda_1(x - b_1)^2 + \cdots + \lambda_k(x - b_k)^2 $$
+		      over the scalar $x$. If we set the derivative to zero, we get
+		      $$ 2\lambda_1(x - b_1) + \cdots + 2\lambda_k(x - b_k) = 0 $$
+		      with solution
+		      $$ \hat{x} = \frac{\lambda_1b_1 + \cdots + \lambda_kb_k}{\lambda_1 + \cdots + \lambda_k} $$
+	      \end{tcolorbox}
+	\item \textbf{[Problem 15.2]} Consider the regularized fitting problem
+	      (15.7). Recall the elements in the first column of $A$ are one. Let
+	      $\hat{\theta}$ be the solutin of (15.7), i.e., the minimizer of
+	      $$ || A\theta - y ||^2 + \lambda(\theta_2^2 + \cdots + \theta_p^2),$$
+	      and let $\tilde{\theta}$ be the minimizer of
+	      $$ || A\theta - y ||^2 + \lambda||\theta||^2 = || A\theta - y ||^2 +
+		      \lambda(\theta_1^2 + \theta_2^2 \cdots + \theta_p^2),$$
+	      in which we also penalize $\theta_1$. Suppose columns 2 through $p$ of
+	      $A$ have mean zero (for example, because features $2, \ldots, p$ have
+	      been standardized on the data set; see page 269). Show that
+	      $\hat{\theta}_k = \tilde{\theta}_k$ for $k = 2, \ldots, p$.
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      Suppose $A$ has $N$ rows and define $B = A_{1:N, 2:p}$. We have
+		      $\mathbf{1}^T B = 0$ because each column of $B$ has mean zero. The
+		      first multi-objective least squares problem is equivalent to
+		      minimizing
+		      $$ \left\|
+			      \begin{bmatrix}
+				      \mathbf{1} & B                \\
+				      0          & \sqrt{\lambda} I \\
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \theta_1     \\
+				      \theta_{2:p} \\
+			      \end{bmatrix}
+			      -
+			      \begin{bmatrix}
+				      y \\
+				      0 \\
+			      \end{bmatrix}
+			      \right\|^2 $$
+		      The normal equations are
+		      $$
+			      \begin{bmatrix}
+				      \mathbf{1} & B                \\
+				      0          & \sqrt{\lambda} I \\
+			      \end{bmatrix}^T
+			      \begin{bmatrix}
+				      \mathbf{1} & B                \\
+				      0          & \sqrt{\lambda} I \\
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \theta_1     \\
+				      \theta_{2:p} \\
+			      \end{bmatrix}
+			      =
+			      \begin{bmatrix}
+				      \mathbf{1} & B                \\
+				      0          & \sqrt{\lambda} I \\
+			      \end{bmatrix}^T
+			      \begin{bmatrix}
+				      y \\
+				      0 \\
+			      \end{bmatrix}
+		      $$
+		      which reduces to
+		      $$
+			      \begin{bmatrix}
+				      N              & \mathbf{1}^T B    \\
+				      B^T \mathbf{1} & B^T B + \lambda I
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \theta_1     \\
+				      \theta_{2:p} \\
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \mathbf{1}^T y \\
+				      B^T y          \\
+			      \end{bmatrix}
+		      $$
+		      Since $\mathbf{1}^T B = 0$, the solution is
+		      $$
+			      \hat{\theta}_1 = \frac{\mathbf{1}^T y}{N} \quad \text{and} \quad \hat{\theta}_{2:p} = (B^T B + \lambda I)^{-1} B^T y
+		      $$
+		      The second multi-objective problem is equivalent to the least
+		      squares problem minimizing
+		      $$ \left\|
+			      \begin{bmatrix}
+				      \mathbf{1}     & B                \\
+				      \sqrt{\lambda} & 0                \\
+				      0              & \sqrt{\lambda} I \\
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \theta_1     \\
+				      \theta_{2:p} \\
+			      \end{bmatrix}
+			      -
+			      \begin{bmatrix}
+				      y \\
+				      0 \\
+				      0 \\
+			      \end{bmatrix}
+			      \right\|^2 $$
+		      The normal equations are
+		      $$
+			      \begin{bmatrix}
+				      \mathbf{1}     & B                \\
+				      \sqrt{\lambda} & 0                \\
+				      0              & \sqrt{\lambda} I \\
+			      \end{bmatrix}^T
+			      \begin{bmatrix}
+				      \mathbf{1}     & B                \\
+				      \sqrt{\lambda} & 0                \\
+				      0              & \sqrt{\lambda} I \\
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \theta_1     \\
+				      \theta_{2:p} \\
+			      \end{bmatrix}
+			      =
+			      \begin{bmatrix}
+				      \mathbf{1}     & B                \\
+				      \sqrt{\lambda} & 0                \\
+				      0              & \sqrt{\lambda} I \\
+			      \end{bmatrix}^T
+			      \begin{bmatrix}
+				      y \\
+				      0 \\
+				      0 \\
+			      \end{bmatrix}
+		      $$
+		      which reduces to
+		      $$
+			      \begin{bmatrix}
+				      N + \lambda    & \mathbf{1}^T B    \\
+				      B^T \mathbf{1} & B^T B + \lambda I
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \theta_1     \\
+				      \theta_{2:p} \\
+			      \end{bmatrix}
+			      \begin{bmatrix}
+				      \mathbf{1}^T y \\
+				      B^T y          \\
+			      \end{bmatrix}
+		      $$
+		      Since $\mathbf{1}^T B = 0$, the solution is
+		      $$
+			      \tilde{\theta}_1 = \frac{\mathbf{1}^T y}{N + \lambda} \quad \text{and}
+			      \quad \tilde{\theta}_{2:p} = (B^T B + \lambda I)^{-1} B^T y
+		      $$
+		      Therefore, $\hat{\theta}_{2:p} = \tilde{\theta}_{2:p}$.
+	      \end{tcolorbox}
+	\item \textbf{[Problem 15.10]} \textit{Estimating a periodic time series.}
+	      (See 15.3.2) Suppose that the $T$-vector $y$ is a measured time
+	      series, and we wish to approximate it with a $P$-periodic $T$-vector.
+	      For simplicity, we assume that $T = KP$, where $K$ is an integer. Let
+	      $\hat{y}$ be the simple least squares fit, with no regularization,
+	      i.e., the $P$-periodic vector that minimizes $||\hat{y} - y||^2$.
+	      Show that for $i = 1, \ldots, P$, we have
+	      $$ \hat{y}_i = \frac{1}{K} \sum_{k=1}^K y_{i + (k-1)P} $$
+	      In other words, each entry of the periodic estimate is the average of
+	      the entries of the original vector over the corresponding indices.
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      We let $x$ be a $P$-vector corresponding to one cycle of
+		      $\hat{y}$, so $y = Ax$, where $A$ is a matrix consisting of $K$
+		      copies of $I_{k \times K}$ stacked vertically. Then
+		      $$
+			      A^T A = K I, \quad A^T y = \sum_{k=1}^K y((k - 1)
+			      P + 1 : (kP).
+		      $$
+		      Therefore the least squares estimate is
+		      $$
+			      \hat{y} = (A^TA)^{-1}A^Ty =\frac{1}{K} \sum_{k=1}^K y((k - 1) P + 1 : (kP).
+		      $$
+		      Which simplifies to
+		      $$
+			      \hat{y}_i = \frac{1}{K} \sum_{k=1}^K y(k - 1) P + i
+		      $$
+	      \end{tcolorbox}
+\end{enumerate}

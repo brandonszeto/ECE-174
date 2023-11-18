@@ -1,0 +1,181 @@
+\begin{enumerate}[label=(\alph*)]
+	\item \textbf{[Problem 12.2]} \textit{Least squares with orthonormal columns.}
+	      Suppose the $m \times n$ matrix $Q$ has orthonormal columns and $b$ is
+	      an $m$-vector. Show that $\hat{x} = Q^Tb$ is the vector that minimizes
+	      $ ||Qx-b||^2$. What is the complexity of computing $\hat{x}$, given
+	      $Q$ and $b$, and how does it compare to the complexity of a general least
+	      squares problem with an $m \times n$ coefficient matrix?
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      From lecture, we know that the solution to $ ||Qx-b||^2$ is given
+		      by the equation $x = (Q^TQ)^{-1}Q^Tb$. Since $Q$ has orthonormal
+		      columns, we have:
+		      $$x = (Q^TQ)^{-1}Q^Tb = IQ^Tb = Q^Tb$$
+		      since $Q^TQ = I$. The complexity of the general least squares
+		      problem is $O(mn^2)$. However in the orthonormal case, we do not
+		      have to compute $Q^TQ$ since $Q^TQ = I$. Thus, the complexity of
+		      the orthonormal case is $O(mn)$.
+	      \end{tcolorbox}
+	\item \textbf{[Problem 12.4]} \textit{Weighted Least Squares.}
+	      In least squares, the objective (to be minimized) is
+	      $$ || Ax - b||^2 = \sum_{i=1}^m (\tilde{a}_i^Tx - b_i)^2$$
+	      where $\tilde{a}_i^T$ are the rows of $A$ and the $n$-vector $x$ is chosen. In
+	      the \textit{weighted} least squares problem, we minimize the objective
+	      $$ \sum_{i=1}^m w_i(a_i^Tx - b_i)^2$$
+	      where $w_i$ are given positive weights. The weights allow us to design
+	      weights to the different components of the residual vector. (The
+	      objective of the weighted least squares problem is the square of the
+	      weighted norm, $||Ax-b||^2_w$, as defined in exercise 3.28.
+	      \begin{enumerate}[label=(\alph*)]
+		      \item Show that the weighted least squares objective can be
+		            expressed as $ ||D(Ax - b)||^2$ for an appropriate diagonal
+		            matrix $D$. This allows us to solve the weighted least squares
+		            problem as a standard least squares problem, by minimizing
+		            $||Bx - d||^2$, where $B = DA$ and $d = Db$.
+		            \begin{tcolorbox}
+			            \textbf{Solution:} \\
+			            Since we are given positive weights, we can rewrite the
+			            objective of the weighted least squares problem as:
+			            $$ \sum_{i=1}^m w_i(a_i^Tx - b_i)^2 = \sum_{i=1}^m
+				            (\sqrt{w_i} (a_i^Tx - b_i))^2 = ||D(Ax - b)||^2$$
+			            where $D$ is defined by
+			            $$ \begin{bmatrix}
+					            \sqrt{w_1} & 0          & \cdots & 0          \\
+					            0          & \sqrt{w_2} & \cdots & 0          \\
+					            \vdots     & \vdots     & \ddots & \vdots     \\
+					            0          & 0          & \cdots & \sqrt{w_m} \\
+				            \end{bmatrix} $$
+		            \end{tcolorbox}
+		      \item Show that when $A$ has linearly independent columns, so does
+		            the matrix $B$.
+		            \begin{tcolorbox}
+			            \textbf{Solution:} \\
+			            Let $A$ have linearly independent columns. Then, $Ax =
+				            0$ has only the trivial solution $x = 0$. Suppose $Bx =
+				            0$. Then, $DAx = 0$. Since $D$ is invertible, we can
+			            multiply both sides by $D^{-1}$ to get $Ax = 0$. Thus,
+			            $x = 0$. Therefore, $Bx = 0$ has only
+			            the trivial solution $x = 0$. Thus, $B$ has linearly
+			            independent columns when $A$ has linearly independent
+			            columns.
+		            \end{tcolorbox}
+		      \item The least squares approximate solution is given by $x =
+			            (A^TA)^{-1}A^Tb$. Give a similar formula for the
+		            solution of the weighted least squares problem. You
+		            might want to use the matrix $W =
+			            \mathbf{diag}(w)$ in your formula.
+		            \begin{tcolorbox}
+			            \textbf{Solution:} \\
+			            Substituting $B$ and $d$ into the least squares
+			            approximate solution, we have:
+			            $$ \begin{aligned}
+					            x & = (B^TB)^{-1}B^Td             \\
+					              & = ((DA)^T(DA))^{-1}(DA)^T(Db) \\
+					              & = ((A^TD)(DA))^{-1}(A^TD)(Db) \\
+					              & = (A^TD^2A)^{-1}(A^TD^2b)     \\
+				            \end{aligned}$$
+			            Using our above definition of $D$, we know that $D^2
+				            = W$. Thus, we can substitute each occurence of
+			            $D^2$ with $W$ to get:
+			            $$ x = (A^TWA)^{-1}(A^TWb) $$
+		            \end{tcolorbox}
+	      \end{enumerate}
+	\item \textbf{[Problem 12.15]} \textit{Minimizing a squared norm plus an
+		      affine function.} A generalization of the least squares problem adds an
+	      affine function to the least squares objective,
+	      $$ \min ||Ax - b||^2 + c^Tx + d$$
+	      where the $n$-vector $x$ is the variable to be chosen, and the (given)
+	      data are the $m \times n$ matrix $A$, the $m$-vector $b$, the
+	      $n$-vector $c$, and the number $d$. We will use the same assumption we
+	      use in least squares: The columns of $A$ are linearly independent.
+	      This generalized problem can be solved by reducing it to a standard
+	      least problem, using a trick called \textit{completing the square}.
+
+	      Show that the objective of the problem above can be expressed in the
+	      form
+	      $$ ||Ax - b||^2 + c^Tx + d = || Ax - b + f ||^2 +g,$$
+	      for some $m$-vector $f$ and some constant $g$. It follows that we can
+	      solve the generalized least squares problem by minimizing $||Ax - ( b
+		      - f)||$, an ordinary least squares problem with solution $\hat{x} =
+		      A^\dagger (b - f)$.
+
+	      \textit{Hints.} Express the norm squares term on the right-hand side
+	      as $||(Ax - b) + f||^2$ and expand it. Then argue that the equality
+	      above holds provided $2A^Tf = c$. One possible choice is $f =
+		      (\frac{1}{2})(A^\dagger)^T c$. (You must justify these statements.)
+
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      Expressing the norm on the right-hand side as $||(Ax - b) + f||^2$
+		      and expanding it, we have:
+		      $$ \begin{aligned}
+				      ||Ax - b||^2 + c^Tx + d & = ||(Ax - b) + f ||^2 + g,
+				      \\
+				      ||Ax - b||^2 + c^Tx + d & = ||Ax - b|| + 2f^T(Ax - b) +
+				      ||f||^2 + g,                                                 \\
+				      c^Tx + d                & = 2f^TAx - 2f^Tb + ||f||^2 + g
+				      \\
+				      c^Tx + d                & = 2(A^Tf)^Tx - 2f^Tb + ||f||^2 + g
+			      \end{aligned}$$
+		      Provided $2A^Tf = c$, we have:
+		      $$ \begin{aligned}
+				      c^Tx + d & = c^Tx - 2f^Tb + ||f||^2 + g \\
+				      d        & = -2f^Tb + ||f||^2 + g
+			      \end{aligned}$$
+		      Finally, we must ensure $f = (\frac{1}{2})(A^\dagger)^T c$
+		      satisfies $2A^Tf = c$. We have:
+		      $$ \begin{aligned}
+				      2A^Tf & = 2A^T(\frac{1}{2})(A^\dagger)^T c \\
+				            & = A^T(A^\dagger)^T c               \\
+				            & = c
+			      \end{aligned}$$
+	      \end{tcolorbox}
+	\item \textbf{[Problem 13.5]} \textit{Polynomial model with multiple
+		      features.} The idea of polynomial models can be extended from the case
+	      discussed on page 255 where there is only one feature. In this
+	      exercise we consider a quadratic (degree two) model with 3 features,
+	      i.e., x is a 3-vector. This has the form
+	      $$ \hat{f}(x) = a + b_1x_1 + b_2x_2 + b_3x_3 + c_1x_1^2 + c_2x_2^2 +
+		      c_3x_3^2 + c_4x_1x_2 + c_5x_1x_3 + c_6x_2x_3 $$
+	      where the scalar $a$, 3-vector $b$, and 6-vector $c$ are the
+	      zeroth, first ,and second order coefficients in the model. Put
+	      this model into our general linear in the parameters form, by
+	      giving $p$, and
+	      the basis functions $f_1, \dots, f_p$ (which map 2-vectors to
+	      scalars).
+	      \begin{tcolorbox}
+		      \textbf{Solution:}\\
+		      Let $p = 10$ and $f_1, \dots, f_p$ be the following basis functions:
+		      $$ \begin{aligned}
+				      f_1(x)    & = 1      \\
+				      f_2(x)    & = x_1    \\
+				      f_3(x)    & = x_2    \\
+				      f_4(x)    & = x_3    \\
+				      f_5(x)    & = x_1^2  \\
+				      f_6(x)    & = x_2^2  \\
+				      f_7(x)    & = x_3^2  \\
+				      f_8(x)    & = x_1x_2 \\
+				      f_9(x)    & = x_1x_3 \\
+				      f_{10}(x) & = x_2x_3 \\
+			      \end{aligned}
+		      $$
+
+	      \end{tcolorbox}
+	\item \textbf{[Problem 13.6]} \textit{Average prediction error.} Consider a
+	      data fitting provlem, with first basis function $\phi_1(x) = 1$ and data
+	      set $x^{(1)}, \dots, x^{(N)}, y^{(1)}, \dots, x^{(N)}$. Assume the
+	      matrix $A$ in (13.1) has linearly independent columns and let
+	      $\hat{\phi}$ denote the parameter values that minimize the mean square
+	      prediction error over the data set. Let the N-vector $\hat{r}^d$ denote
+	      the prediction errors using the optimal model parameter $\hat{\phi}$.
+	      Show that $\mathbf{avg}(\hat{r}^d) = 0$. In other words: With the least
+	      square fit, the mean of the prediction errors over the data is zero.
+	      \textit{Hint.} Use the orthogonality principle (12.9), with $z = e_1$.
+	      \begin{tcolorbox}
+		      \textbf{Solution:}\\
+		      Since $Ae_1 = \phi_1(x^{(1)}) = 1$, we have, by the orthogonality
+		      principle with $z = e_1$, that $\mathbf{1} \perp \hat{r}$.
+		      Therefore $\mathbf{avg}(\hat{r}^d) = \frac{\mathbf{1}^T\hat{r}}{N}
+			      = 0$.
+	      \end{tcolorbox}
+\end{enumerate}
