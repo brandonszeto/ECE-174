@@ -1,0 +1,80 @@
+\begin{enumerate}[label=(\alph*)]
+	\item \textbf{[Problem 14.8]} \textit{Nearest Neighbor interpretation of
+		      multi-class classifier.} We consider the least squares K-class
+	      classifier of 14.3.1. We associate with each data point the $n$-vector
+	      $x$, and the label or class, which is one of $1, \ldots, K$. If the
+	      class of the data point is $k$, we associate it with a $K$-vector $y$,
+	      whose entries are $y_k = +1$ and $y_j = -1$ for $j \neq k$. (We can
+	      write this vector as $y = 2e_k - \mathbf{1}$.) Define $\tilde{y} =
+		      ( \tilde{f}_1(x), \ldots, \tilde{f}_K(x) )$, which is
+	      our (real-valued) or continuous prediction for the label $y$. Our
+	      multi-class prediction is given by $\hat{f}(x) = \operatorname{argmax}{k =
+			      1,\ldots,K} \tilde{f}_k(x)$. Show that $\tilde{f}(x)$ is also the
+	      index of the nearest neighbor of $\tilde{y}$ among the vectors
+	      $y = 2e_k - \mathbf{1}$, for $k = 1, \ldots, K$. In other words, our
+	      guess $\hat{y}$ for the class is the nearest neighbor of our
+	      continuous prediction $\tilde{y}$, among the vectors that encode the
+	      class labels.
+
+	\item \textbf{[Problem 15.3]} \textit{Weighted Gram matrix.} Consider a
+	      multi-objective least squares problems with matrices $A_1, \ldots,
+		      A_k$ and positive weights $\lambda_1, \ldots, \lambda_k$. The matrix
+	      $$ G = \lambda_1 A_1^T A_1 + \cdots + \lambda_k A_k^T A_k $$
+	      is called the \textit{weighted Gram matrix}; it is the Gram matrix of
+	      the stacked matrix $\tilde{A}$ (given in (15.2)) associated with the
+	      multi-objective problem. Show that $G$ is invertible provided there is
+	      no nonzero vector $x$ that satisfies $A_1 x = 0, \ldots, A_k x = 0$.
+
+	\item \textbf{[Problem 15.6]} \textit{Least squares with smoothness
+		      regularization.} Consider the weighted sum least squares objective
+	      $$ \parallel Ax - b \parallel^2 + \lambda \parallel Dx \parallel^2$$
+	      where the $n$-vector $x$ is the variable, $A$ is an $m \times n$
+	      matrix, $D$ is the $(n - 1) \times n$ difference matrix, with $i$th
+	      row $(e_{i + 1} - e_i)^T$, and $\lambda > 0$. Although it does not
+	      matter in this problem,this objective is what we would minimize if we
+	      want an $x$ that satisfies $Ax \approx b$, and has entries that are
+	      smoothly varying. We can express this objective as a standard least
+	      squares objective with a stacked matrix  of size $(m + n - 1) \times
+		      n$.
+	      Show that the stacked matrix has linearly independent columns if and
+	      only if $A \mathbf{1} \neq 0$, \textit{i.e.}, the sum of the columns
+	      of $A$ is not zero.
+	\item \textbf{[Problem 15.9]} \textit{Regularizing stratified models}. In a
+	      stratified model (see page 272), we divide the data into different sets,
+	      depending on the value of some (often Boolean) feature, and then fit a
+	      separate model for each of these two data sets, using the remaining
+	      features. As an example, to develop a model of some health outcome we
+	      might build a separate model for women and for men. In some cases better
+	      models are obtained when we encourage the different models in a
+	      stratified model to be close to each other. For the case of stratifying
+	      on one Boolean feature, this is done by choosing the two model
+	      parameters $\theta^{(1)}$ and $\theta^{(2)}$ to minimize
+	      $$ \parallel A^{(1)} \theta^{(1)} - y^{(1)} \parallel^2 + \parallel
+		      A^{(2)} \theta^{(2)} - y^{(2)} \parallel^2 + \lambda \parallel
+		      \theta^{(1)} - \theta^{(2)} \parallel^2 $$
+	      where $\lambda > 0$ is a parameter. The first term is the least
+	      squares residual for the first model on the first data set (say,
+	      women); the second term is the least squares residual for the second
+	      model on the second data set (say, men); the third term is a
+	      regularization term that encourages the two model parameters to be
+	      close to each other. Note that when $\lambda = 0$, we simply fit each
+	      model separately; when $\lambda$ is very large, we are basically
+	      fitting one model to all the data. Of course the choice of an
+	      appropriate value of $\lambda$ is obtained using out-of-sample
+	      validation (or cross-validation).
+	      \begin{enumerate}[label=(\alph*)]
+		      \item  Give a formula for the optimal $(\hat{\theta}^{(1)} ,
+			            \hat{\theta}^{(2)} )$. (If your formula requires one or
+		            more matrices to have linearly independent columns, say
+		            so.)
+		      \item \textit{Stratifying across age groups.} Suppose we fit a
+		            model with each data point representing a person, and we
+		            stratify over the person’s \textit{age group}, which is a
+		            range of consecutive ages such as 18–24, 24–32, 33–45, and
+		            so on. Our goal is to fit a model for each age of $k$
+		            groups, with the parameters for adjacent age groups similar,
+		            or not too far, from each other. Suggest a method for doing
+		            this.
+	      \end{enumerate}
+
+\end{enumerate}
