@@ -1,5 +1,5 @@
 \begin{enumerate}[label=(\alph*)]
-	\item \textbf{[Problem 14.8]} \textit{Nearest Neighbor interpretation of
+	\item \textbf{[Problem 14.9]} \textit{Nearest Neighbor interpretation of
 		      multi-class classifier.} We consider the least squares K-class
 	      classifier of 14.3.1. We associate with each data point the $n$-vector
 	      $x$, and the label or class, which is one of $1, \ldots, K$. If the
@@ -16,6 +16,37 @@
 	      continuous prediction $\tilde{y}$, among the vectors that encode the
 	      class labels.
 
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      Let $\tilde{y} \in \mathbb{R}^K$.  Let its distance to $y = 2e_k -
+			      \mathbf{1}$ be defined as
+		      $$ \left\| \tilde{y} - \left( 2e_k - \mathbf{1} \right) \right\|^2$$
+		      Minimizing this term is equivalent to finding the data point that
+		      is the \textit{nearest neighbor} of $\tilde{y}$. Now let us write
+		      this term in terms of $\tilde{f}_k(x)$. The idea here is to
+		      multiply the term $e_k$ by $\tilde{y}$ to get $\tilde{f}_k(x)$.
+		      $$ \begin{aligned}
+				      \left\| \tilde{y} - \left( 2e_k - \mathbf{1} \right)
+				      \right\|^2 & =
+				      \left\| \left(\tilde{y} + \mathbf{1} \right) + 2e_k
+				      \right\|^2                                                 \\
+				                 & = \left\| \tilde{y} + \mathbf{1} \right\|^2 +
+				      4 - 4\left( \tilde{y} + \mathbf{1}
+				      \right)^Te_k                                               \\
+				                 & = \left\| \tilde{y} + \mathbf{1} \right\|^2 -
+				      4\tilde{f}_k(x)                                            \\
+			      \end{aligned}$$
+
+		      Clearly, to minimize
+		      $$\left\| \tilde{y} + \mathbf{1} \right\|^2 - 4\tilde{f}_k(x) $$
+		      we must choose $\tilde{f}_k(x)$ to be as large as possible. Recall
+		      our definition of $\hat{f}(x)$:
+		      $$\hat{f}(x) = \operatorname{argmax}_{k = 1,\ldots,K}
+			      \tilde{f}_k(x)$$
+		      This definition fits our need to minimize the distance between the
+		      $\tilde{y}$ and its $K$-vector $2e_k - \mathbf{1}$.
+	      \end{tcolorbox}
+
 	\item \textbf{[Problem 15.3]} \textit{Weighted Gram matrix.} Consider a
 	      multi-objective least squares problems with matrices $A_1, \ldots,
 		      A_k$ and positive weights $\lambda_1, \ldots, \lambda_k$. The matrix
@@ -24,6 +55,45 @@
 	      the stacked matrix $\tilde{A}$ (given in (15.2)) associated with the
 	      multi-objective problem. Show that $G$ is invertible provided there is
 	      no nonzero vector $x$ that satisfies $A_1 x = 0, \ldots, A_k x = 0$.
+
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      Let the stacked matrix $\tilde{A}$ be defined as
+		      $$
+			      \tilde{A} =
+			      \begin{bmatrix}
+				      \sqrt{\lambda_1} A_1 \\
+				      \sqrt{\lambda_2} A_2 \\
+				      \vdots               \\
+				      \sqrt{\lambda_k} A_k \\
+			      \end{bmatrix}$$
+		      Then the weighted Gram matrix $G$ (in terms of $\tilde{A}$) is defined as
+		      $$
+			      G = \tilde{A}^T \tilde{A} =
+			      \begin{bmatrix}
+				      \sqrt{\lambda_1} A_1 \\
+				      \sqrt{\lambda_2} A_2 \\
+				      \vdots               \\
+				      \sqrt{\lambda_k} A_k \\
+			      \end{bmatrix}^T
+			      \begin{bmatrix}
+				      \sqrt{\lambda_1} A_1 \\
+				      \sqrt{\lambda_2} A_2 \\
+				      \vdots               \\
+				      \sqrt{\lambda_k} A_k \\
+			      \end{bmatrix} = \lambda_1 A_1^T A_1 + \cdots + \lambda_k A_k^T A_k
+		      $$
+		      Clearly, the null space of $\tilde{A}$ is
+		      $$\mathcal{N}(\tilde{A}) =
+			      \mathcal{N}(A_1) \cap \cdots \cap \mathcal{N}(A_k) = \left\{ 0
+			      \right\}$$
+		      by our assumption. Therefore the only vector $x$ that satisfies $
+			      \tilde{A}x = 0$ is the zero vector. In the context of the Gram
+		      matrix, we have $Gx = 0$ if and only if $\tilde{A}^T \tilde{A}x =
+			      0$ if and only if $\tilde{A}x = 0$ if and only if $x = 0$ (by
+		      our assumption). Therefore $\mathcal{N}(G) = 0$ and $G$ is
+		      full rank, making $G$ invertible.
+	      \end{tcolorbox}
 
 	\item \textbf{[Problem 15.6]} \textit{Least squares with smoothness
 		      regularization.} Consider the weighted sum least squares objective
@@ -39,6 +109,32 @@
 	      Show that the stacked matrix has linearly independent columns if and
 	      only if $A \mathbf{1} \neq 0$, \textit{i.e.}, the sum of the columns
 	      of $A$ is not zero.
+
+	      \begin{tcolorbox}
+		      \textbf{Solution:} \\
+		      Let the stacked matrix $\mathbf{B}$ be defined as
+		      $$ \mathbf{B} = \begin{bmatrix}
+				      A \\
+				      \sqrt{\lambda} D
+			      \end{bmatrix} $$
+		      Now if $A \mathbf{1} = 0$, then $\mathbf{B} \mathbf{1} = 0$
+		      and $\mathbf{B}$ does not have linearly independent columns.
+		      Therefore it is neccessary that $A \mathbf{1} \neq 0$ for
+		      $\mathbf{B}$ to have linearly independent columns.
+
+		      To show that $A \mathbf{1} \neq 0$ is sufficient for $\mathbf{B}$
+		      to have linearly independent columns, let us assume that $A
+			      \mathbf{1} \neq 0$. If $\mathbf{B}x = 0$, then $Ax = 0$ and
+		      $\sqrt{\lambda} Dx = 0$. Since $\lambda > 0$, we have $Dx = 0$.
+		      However, $Dx = 0$ only when there are no differences between its
+		      elements. Thus $x$ must be some multiple of $\mathbf{1}$. However
+		      because $A \mathbf{1} \neq 0$, no nonzero multiple of $\mathbf{1}$
+		      satisfies $Ax = 0$. Therefore $\mathbf{B}x = 0$ only if $x = 0$
+		      and the stacked matrix $\mathbf{B}$ has linearly independent
+		      columns.
+	      \end{tcolorbox}
+
+	      \newpage
 	\item \textbf{[Problem 15.9]} \textit{Regularizing stratified models}. In a
 	      stratified model (see page 272), we divide the data into different sets,
 	      depending on the value of some (often Boolean) feature, and then fit a
@@ -67,6 +163,79 @@
 			            \hat{\theta}^{(2)} )$. (If your formula requires one or
 		            more matrices to have linearly independent columns, say
 		            so.)
+
+		            \begin{tcolorbox}
+			            \textbf{Solution:} \\
+			            The above problem can be rewritten as
+			            $$ \begin{bmatrix}
+					            A^{(1)}          & 0                 \\
+					            0                & A^{(2)}           \\
+					            \sqrt{\lambda} I & -\sqrt{\lambda} I
+				            \end{bmatrix}
+				            \begin{bmatrix}
+					            \theta^{(1)} \\
+					            \theta^{(2)}
+				            \end{bmatrix} =
+				            \begin{bmatrix}
+					            y^{(1)} \\
+					            y^{(2)} \\
+					            0
+				            \end{bmatrix} $$
+			            Letting
+			            $$
+				            A = \begin{bmatrix}
+					            A^{(1)}          & 0                 \\
+					            0                & A^{(2)}           \\
+					            \sqrt{\lambda} I & -\sqrt{\lambda} I
+				            \end{bmatrix},
+				            \quad \theta =
+				            \begin{bmatrix}
+					            \theta^{(1)} \\
+					            \theta^{(2)} \\
+				            \end{bmatrix}
+				            \quad b =
+				            \begin{bmatrix}
+					            y^{(1)} \\
+					            y^{(2)} \\
+					            0\end{bmatrix}
+			            $$
+			            we know the optimal $\hat{\theta}$ is given by
+			            pseudoinverse of $A$:
+			            $$ \hat{\theta} = A^{\dagger} b = \left( A^TA
+				            \right)^{-1}A^Tb $$
+			            In order to take the inverse of $A^TA$, we need to show that
+			            $A^TA$ is invertible. We can show this by showing
+			            that $A$ has linearly independent columns:
+			            $$ \begin{aligned}
+					            A \theta                                       & = 0 \\
+					            \begin{bmatrix}
+						            A^{(1)}          & 0                 \\
+						            0                & A^{(2)}           \\
+						            \sqrt{\lambda} I & -\sqrt{\lambda} I \\
+					            \end{bmatrix}
+					            \begin{bmatrix}
+						            \theta^{(1)} \\
+						            \theta^{(2)} \\
+					            \end{bmatrix}                                & = 0   \\
+					            \begin{bmatrix}
+						            A^{(1)} \theta^{(1)} \\
+						            A^{(2)} \theta^{(2)} \\
+						            \sqrt{\lambda} \left( \theta^{(1)} -
+						            \theta^{(2)}\right)  \\
+					            \end{bmatrix} & = 0        \\
+				            \end{aligned} $$
+			            Here, the solution must satisfy $\theta^{(1)} =
+				            \theta^{(2)}$. However, in order to have $A^{(1)}
+				            \theta^{(1)} = 0$ and $A^{(2)} \theta^{(2)} = 0$,
+			            $\theta^{(1)}$ and $\theta^{(2)}$ must be zero. Thus,
+			            the only solution is $\theta^{(1)} = \theta^{(2)} =
+				            0$. This means that the matrix
+			            $$ \begin{bmatrix}
+					            A^{(1)} \\
+					            A^{(2)} \\
+				            \end{bmatrix} $$
+			            has linearly independent columns.
+		            \end{tcolorbox}
 		      \item \textit{Stratifying across age groups.} Suppose we fit a
 		            model with each data point representing a person, and we
 		            stratify over the person’s \textit{age group}, which is a
@@ -75,6 +244,25 @@
 		            groups, with the parameters for adjacent age groups similar,
 		            or not too far, from each other. Suggest a method for doing
 		            this.
-	      \end{enumerate}
 
+		            \begin{tcolorbox}
+			            \textbf{Solution:} \\
+			            Similar to the two model case in the problem statement,
+			            we can minimize the following:
+			            $$
+				            \left\| A^{(1)} \theta^{(1)} - y^{(1)} \right\|^2 +
+				            \cdots +
+				            \left\| A^{(k)} \theta^{(k)} - y^{(k)} \right\|^2 +
+				            \lambda \left\| \theta^{(1)} - \theta^{(2)} \right\|^2 +
+				            \cdots +
+				            \lambda \left\| \theta^{(k - 1)} - \theta^{(k)} \right\|^2
+			            $$
+			            where $\lambda > 0$ is a parameter. This could even be
+			            further generalized to allow for different $\lambda$'s.
+			            Adjacent age groups that we would like to be more
+			            similar would have larger $\lambda$'s, while age groups
+			            that we would like to be more different would have
+			            smaller $\lambda$'s.
+		            \end{tcolorbox}
+	      \end{enumerate}
 \end{enumerate}
